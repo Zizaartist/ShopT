@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.Registration.EnterSMS"
+             BackgroundColor="{StaticResource BackgroundPageColor}">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource zEnterSMSGrid}">
+            <Frame Style="{StaticResource zEnterSMSFrameImage}">
+                <Image Style="{StaticResource zEnterSMSImage}"
+                       Source="Logo.png"/>
+            </Frame>
+            <StackLayout Style="{StaticResource zEnterSMSStack}">
+                <Label Style="{StaticResource zEnterSMSLabel_1}"/>
+                <Frame Style="{StaticResource zEnterSMSEntryFrame}">
+                    <Entry Style="{StaticResource zEnterSMSEntry}"
+                           Text="{Binding Code, Mode=TwoWay}"
+                           x:Name="EntrySMS"/>
+                </Frame>
+                <Button Style="{StaticResource zEnterSMSButton}"
+                        x:Name="Confirm"
+                        IsEnabled="{Binding AllFieldsValid}"
+                        Clicked="Confirm_Clicked"/>
+                <Grid Style="{StaticResource zEnterSMSGridCheck}">
+                    <CheckBox Style="{StaticResource zEnterSMSCheck_1}"
+                              IsChecked="{Binding Agreement1, Mode=TwoWay}"
+                              x:Name="CheckOne"/>
+                    <Label Style="{StaticResource zEnterSMSLabel_2}"/>
+                    <CheckBox Style="{StaticResource zEnterSMSCheck_2}"
+                              IsChecked="{Binding Agreement2, Mode=TwoWay}"
+                              x:Name="CheckTwo"/>
+                    <Label Style="{StaticResource zEnterSMSLabel_3}"/>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

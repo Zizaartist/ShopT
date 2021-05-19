@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Main.CategoryPages"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource BackgroundPageColor}"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}">
+    <ContentPage.Content>
+        <RefreshView x:Name="Refreshable"
+                     IsRefreshing="{Binding IsWorking}"
+                     Command="{Binding GetInitialData}">
+            <CollectionView Style="{StaticResource zCategoryCollectionView}"
+                        x:Name="CategoriesCollection"
+                        SelectionChanged="CategoriesCollection_SelectionChanged"
+                        ItemsSource="{Binding Categories}">
+                <CollectionView.Header>
+                    <StackLayout Style="{StaticResource zHeaderCategoryPagesStackLayout}">
+                        <Grid Style="{StaticResource zHeaderCategoryPagesGrid}">
+                            <Frame Style="{StaticResource zHeaderCategoryPagesFrame}">
+                                <Image Style="{StaticResource zHeaderCategoryPagesImage}"
+                                       Source="{Binding _shopLocal.Image}"
+                                      />
+                            </Frame>
+                            <StackLayout Style="{StaticResource zHeaderCategoryPagesNameStack}">
+                                <Label Style="{StaticResource zHeaderCategoryPagesLabelName}"
+                                       Text="Название магазина"
+                                       x:Name="NameShop"
+                                       />
+                                <Image Style="{StaticResource zHeaderCategoryPagesDownImage}"/>
+                            </StackLayout>
+                            <Button Style="{StaticResource zHeaderCategoryPagesBackButton}"
+                                    x:Name="ShopChoice"
+                                    Clicked="ShopChoice_Clicked"/>
+                            <ImageButton Style="{StaticResource zHeaderCategoryPagesImageButton}"
+                                     x:Name="Find"
+                                     Clicked="Find_Clicked"/>
+                        </Grid>
+                        <Frame Style="{StaticResource zAddBannerFrame}"
+                           IsVisible="{StaticResource Banner}">
+                            <Image Style="{StaticResource zAddBannerImage}"
+                               Source="{Binding _shopLocal.BannerImage}"/>
+                        </Frame>
+                        <Label Style="{StaticResource zHeaderCategoryPagesLabel}"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame Style="{StaticResource zCategoryCollectionFrame}">
+                                <Grid Style="{StaticResource zCategoryCollectionGrid}">
+                                    <Frame Style="{StaticResource zCategoryCollectionFrameImage}">
+                                        <Image Style="{StaticResource zCategoryCollectionImage}"
+                                           Source="{Binding Image}"/>
+                                    </Frame>
+                                    <Label Style="{StaticResource zCategoryCollectionLabel}"
+                                       Text="{Binding Category.CategoryName}"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

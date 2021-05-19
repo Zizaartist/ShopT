@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Profile.OrganisationData"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}"
+             BackgroundColor="{StaticResource BackgroundPageColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Об организации"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="WrapperStack"
+                         Padding="20,0,20,0">
+                <Label Style="{StaticResource Font_14Bold}"
+                       Text="Способы оплаты:"
+                       FontSize="16"/>
+                <StackLayout IsVisible="{Binding existCardPay}">
+                    <Label Style="{StaticResource Font_14}"
+                           Text="Картой курьеру"
+                           TextColor="{StaticResource GrayColor}"/>
+                    <Label Style="{StaticResource Font_14}"
+                           Text="{Binding CardPayInfo}"/>
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,*">
+                        <Label Text="- МИР"
+                               Grid.Row="0"
+                               Style="{StaticResource Font_14}"/>
+                        <Image Source="mir.png"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Style="{StaticResource RegistrationImage}"
+                               HeightRequest="30"/>
+                        <Label Text="- VISA"
+                               Grid.Row="1"
+                               Style="{StaticResource Font_14}"/>
+                        <Image Source="visa.png"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               Style="{StaticResource RegistrationImage}"
+                               HeightRequest="30"/>
+                        <Label Text="- Mastercard Worldwide"
+                               Grid.Row="2"
+                               Style="{StaticResource Font_14}"/>
+                        <Image Source="mastercard.png"
+                               Grid.Row="2"
+                               Grid.Column="1"
+                               Style="{StaticResource RegistrationImage}"
+                               HeightRequest="30"/>
+                    </Grid>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding existCashPay}">
+                    <Label Style="{StaticResource Font_14}"
+                           Text="Наличными курьеру"
+                           TextColor="{StaticResource GrayColor}"/>
+                    <Label Style="{StaticResource Font_14}"
+                           Text="{Binding CashPayInfo}"/>
+                </StackLayout>
+                <StackLayout IsVisible="{Binding existCardOnlinePay}">
+                    <Label Style="{StaticResource Font_14}"
+                           Text="Картой онлайн"
+                           TextColor="{StaticResource GrayColor}"/>
+                    <Label Style="{StaticResource Font_14}"
+                           Text="{Binding CardOnlinePayInfo}"/>
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="Auto,*">
+                        <Label Text="- МИР"
+                               Grid.Row="0"
+                               Style="{StaticResource Font_14}"/>
+                        <Image Source="mir.png"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Style="{StaticResource RegistrationImage}"
+                               HeightRequest="30"/>
+                        <Label Text="- VISA"
+                               Grid.Row="1"
+                               Style="{StaticResource Font_14}"/>
+                        <Image Source="visa.png"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               Style="{StaticResource RegistrationImage}"
+                               HeightRequest="30"/>
+                        <Label Text="- Mastercard Worldwide"
+                               Grid.Row="2"
+                               Style="{StaticResource Font_14}"/>
+                        <Image Source="mastercard.png"
+                               Grid.Row="2"
+                               Grid.Column="1"
+                               Style="{StaticResource RegistrationImage}"
+                               HeightRequest="30"/>
+                    </Grid>
+                </StackLayout>
+                <Label Style="{StaticResource Font_14Bold}"
+                       Text="Контакты:"
+                       FontSize="16"/>
+                <Label Style="{StaticResource Font_14}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Фактический адрес: "
+                                  TextColor="{StaticResource GrayColor}"/>
+                            <Span Text="{Binding Adress}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource Font_14}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Электронная почта: "
+                                  TextColor="{StaticResource GrayColor}"/>
+                            <Span Text="{Binding EMail}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource Font_14}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Телефоны: "
+                                  TextColor="{StaticResource GrayColor}"/>
+                            <Span Text="{Binding Number}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource Font_14Bold}"
+                       Text="Реквизиты:"
+                       FontSize="16"/>
+                <Label Style="{StaticResource Font_14}"
+                       Text="{Binding Name}"/>
+                <Label Style="{StaticResource Font_14}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="ИНН: "
+                                  TextColor="{StaticResource GrayColor}"/>
+                            <Span Text="{Binding INN}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource Font_14}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="ОГРНИП: "
+                              TextColor="{StaticResource GrayColor}"/>
+                            <Span Text="{Binding OGRNIP}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource Font_14}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Юридический адрес: "
+                                  TextColor="{StaticResource GrayColor}"/>
+                            <Span Text="{Binding AdressLegal}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Main.ProductInfo"
+             BackgroundColor="{StaticResource BackgroundPageColor}"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Категории"
+                   x:Name="HeaderLabel"/>
+            <Label x:Name="Points"
+                   Text="{Binding Points, StringFormat='У Вас {0}'}"
+                   Style="{StaticResource ShellBonus}"
+                   IsVisible="{StaticResource Bonus}"
+                   />
+            <ImageButton Style="{StaticResource ShellBonusButton}"
+                         IsVisible="{StaticResource Bonus}"
+                         Clicked="ImageButton_Clicked"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{StaticResource zProductInfoMainStack}"
+                         x:Name="MainStack">
+                <Frame Style="{StaticResource zProductInfoFrame}">
+                    <Image Style="{StaticResource zProductInfoImage}"
+                           Source="{Binding Image}"/>
+                </Frame>
+                <Label Style="{StaticResource zProductInfoLPrice}">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding SumPrice}"
+                                  x:Name="Price"/>
+                            <Span Text=" руб."/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label Style="{StaticResource zProductInfoCountHeader}"/>
+                <Grid Style="{StaticResource zProductInfoGrid}">
+                    <ImageButton Style="{StaticResource zProductInfoMinus}"
+                                 x:Name="Minus"
+                                 Command="{Binding SubCount}"
+                                 />
+                    <Label Style="{StaticResource zProductInfoCount}"
+                           Text="{Binding Count}"
+                           x:Name="Count"/>
+                    <ImageButton Style="{StaticResource zProductInfoPlus}"
+                                 x:Name="Plus"
+                                 Command="{Binding AddCount}"
+                                 />
+                </Grid>
+                <Label Text="Количество на складе:"
+                       Style="{StaticResource Font_14}"/>
+                <Label Text="{Binding Product.InStorage}"
+                       TextColor="{StaticResource GrayColor}"
+                       Style="{StaticResource Font_14}"/>
+                
+                <Label Style="{StaticResource zProductInfoDescriptionHeader}"/>
+                <Label Style="{StaticResource zProductInfoDescription}"
+                       Text="{Binding Product.Description}"/>
+                <Button Style="{StaticResource zProductInfoAdd}"
+                        x:Name="AddBasket"
+                        Command="{Binding AddToBasket}"
+                        CommandParameter="{Binding .}"
+                        Clicked="AddBasket_Clicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

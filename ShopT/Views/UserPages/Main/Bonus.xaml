@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Main.Bonus"
+             BackgroundColor="{StaticResource BackgroundPageColor}"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Мои бонусы"
+                   x:Name="HeaderLabel"/>
+            <Label x:Name="Points"
+                   Text="{Binding Points, StringFormat='У Вас {0}'}"
+                   Style="{StaticResource ShellBonus}"
+                   IsVisible="{StaticResource Bonus}"
+                   />
+            <ImageButton Style="{StaticResource ShellBonusButton}"
+                         IsVisible="{StaticResource Bonus}"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <RefreshView x:Name="Refreshable"
+                     IsRefreshing="{Binding IsWorking}"
+                     Command="{Binding GetInitialData}">
+            <CollectionView Style="{StaticResource zBonusCollection}"
+                        x:Name="BonusCollection"
+                        ItemsSource="{Binding PointRegisters}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Style="{StaticResource zBonusCollectionWrapperGrid}">
+                            <Frame Style="{StaticResource zBonusCollectonFrame}">
+                                <Grid Style="{StaticResource zBonusCollectionInsideGrid}">
+                                    <StackLayout Style="{StaticResource zBonusCollectionTextStack}">
+                                        <Label Style="{StaticResource zBonusCollectionLabel}"/>
+                                        <Label Style="{StaticResource zBonusCollectionDate}"
+                                            Text="{Binding PointRegister.CreatedDate, StringFormat='{0:dd MMMM yyyy, HH:mm}'}"/>
+                                    </StackLayout>
+                                    <StackLayout Style="{StaticResource zBonusCollectionBonusStack}">
+                                        <Label Style="{StaticResource zBonusCollectionBall}"
+                                           Text="{Binding Value}"/>
+                                        <ImageButton Style="{StaticResource zBonusCollectionBonus}"
+                                                 x:Name="Bonus"/>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

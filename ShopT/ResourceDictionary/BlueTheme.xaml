@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="ShopT.ResourceDictionary.BlueTheme"
+                    Source="SimpleTheme.xaml">
+    <Color x:Key="ThemeColor">#598bd7</Color>
+    <Color x:Key="HeaderPageColor">#598bd7</Color>
+    <Color x:Key="BottomPageColor">#1a1a1a</Color>
+    <Color x:Key="IconCurrentColor">#009fd4</Color>
+    <Color x:Key="IconUnselectedColor">#767676</Color>
+    <Color x:Key="BackgroundPageColor">#f6f6f6</Color>
+    <Color x:Key="HeaderBackColor">#f6f6f6</Color>
+    <!--NAMESOFIMAGES-->
+    <x:String x:Key="BonusIcon">bluethemeBonus.png</x:String>
+    <x:String x:Key="GrayFind">bluethemeFind.png</x:String>
+    <x:String x:Key="Discount">bluthemeDiscount.png</x:String>
+    <x:String x:Key="AddBasket">bluethemeAddBasket.png</x:String>
+    <x:String x:Key="PlusButton">bluethemePlus.png</x:String>
+    <x:String x:Key="MinusButton">bluethemeMinus.png</x:String>
+    <x:String x:Key="HomeIcon">bluthemeHomeIcon.png</x:String>
+    <x:String x:Key="OrdersIcon">bluethemeOrdersIcon.png</x:String>
+    <x:String x:Key="BasketIcon">bluthemeBasketIcon.png</x:String>
+    <x:String x:Key="ProfileIcon">bluethemeProfileIcon.png</x:String>
+    <x:String x:Key="DownIcon">bluthemeDown.png</x:String>
+    <Style x:Key="ShellHeader" TargetType="Label" BasedOn="{StaticResource ShellHeader}">
+        <Setter Property="TextColor" Value="#EFEFEF"/>
+    </Style>
+    <Style x:Key="ShellBonus" TargetType="Label" BasedOn="{StaticResource ShellBonus}">
+        <Setter Property="TextColor" Value="#EFEFEF"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesGrid" TargetType="Grid" BasedOn="{StaticResource zHeaderCategoryPagesGrid}">
+        <Setter Property="BackgroundColor" Value="{StaticResource HeaderPageColor}"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionView" TargetType="CollectionView" BasedOn="{StaticResource zCategoryCollectionView}">
+        <Setter Property="ItemsLayout">
+            <GridItemsLayout Orientation="Vertical"
+                             Span="2"/>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionFrame" TargetType="Frame" BasedOn="{StaticResource zCategoryCollectionFrame}">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource GrayColorLight}"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionLabel" TargetType="Label" BasedOn="{StaticResource zCategoryCollectionLabel}">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style x:Key="zAddBannerFrame" TargetType="Frame" BasedOn="{StaticResource zAddBannerFrame}">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesImage" TargetType="Image" BasedOn="{StaticResource zHeaderCategoryPagesImage}">
+        <Setter Property="Aspect" Value="AspectFill"/>
+        <Setter Property="WidthRequest" Value="45"/>
+        <Setter Property="HeightRequest" Value="45"/>
+    </Style>
+
+    <Style x:Key="zHeaderCategoryPagesFrame" TargetType="Frame" BasedOn="{StaticResource zHeaderCategoryPagesFrame}">
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+    <!--PRODUCTLIST-->
+    <Style x:Key="zProductListCollectionView" TargetType="CollectionView" BasedOn="{StaticResource zProductListCollectionView}">
+        <Setter Property="ItemsLayout">
+            <GridItemsLayout Orientation="Vertical"
+                             Span="1"/>
+        </Setter>
+    </Style>
+    <Style x:Key="zProductListFrame" TargetType="Frame" BasedOn="{StaticResource zProductListFrame}">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="CornerRadius" Value="18"/>
+    </Style>
+    <Style x:Key="zProductListWrapperStack" TargetType="StackLayout" BasedOn="{StaticResource zProductListWrapperStack}">
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    <Style x:Key="zProductListFrameImage" TargetType="Frame" BasedOn="{StaticResource zProductListFrameImage}">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="CornerRadius" Value="18"/>
+    </Style>
+    <Style x:Key="zProductListImage" TargetType="Image" BasedOn="{StaticResource zProductListImage}">
+        <Setter Property="HeightRequest" Value="100"/>
+        <Setter Property="WidthRequest" Value="100"/>
+    </Style>
+    <Style x:Key="zProductListSale" TargetType="Image" BasedOn="{StaticResource zProductListSale}">
+        <Setter Property="HeightRequest" Value="25"/>
+        <Setter Property="WidthRequest" Value="25"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+    <Style x:Key="zProductListStackLayoutPrice" TargetType="StackLayout" BasedOn="{StaticResource zProductListStackLayoutPrice}">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="WidthRequest" Value="230"/>
+    </Style>
+    <Style x:Key="zProductListPrice" TargetType="Label" BasedOn="{StaticResource zProductListPrice}">
+    </Style>
+    <Style x:Key="zProductListPriceStrikethrough" TargetType="Label" BasedOn="{StaticResource zProductListPriceStrikethrough}">
+    </Style>
+    <Style x:Key="zProductListName" TargetType="Label" BasedOn="{StaticResource zProductListName}">
+        <Setter Property="Grid.Row" Value="0"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="TextColor" Value="{StaticResource Black}"/>
+    </Style>
+    <Style x:Key="zProductListAddBasket" TargetType="ImageButton" BasedOn="{StaticResource zProductListAddBasket}">
+        <Setter Property="Grid.Row" Value="2"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="Grid.RowSpan" Value="1"/>
+    </Style>
+    <!--FILTERSORTING-->
+    <Style x:Key="zFilterSortingGrid" TargetType="Grid" BasedOn="{StaticResource zFilterSortingGrid}">
+        <Setter Property="ColumnDefinitions" Value="*,*"/>
+        <Setter Property="RowDefinitions" Value="Auto"/>
+        <Setter Property="Padding" Value="0,0,0,20"/>
+    </Style>
+    <Style x:Key="zFilterSortingFilter" TargetType="Picker" BasedOn="{StaticResource zFilterSortingFilter}">
+        <Setter Property="TitleColor" Value="{DynamicResource White}"/>
+        <Setter Property="TextColor" Value="{StaticResource White}"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource HeaderPageColor}"/>
+    </Style>
+    <Style x:Key="zFilterSortingSorting" TargetType="Picker" BasedOn="{StaticResource zFilterSortingSorting}">
+        <Setter Property="TitleColor" Value="{DynamicResource White}"/>
+        <Setter Property="TextColor" Value="{StaticResource White}"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource HeaderPageColor}"/>
+    </Style>
+    <Style x:Key="zBasketCollectionImage" TargetType="Image" BasedOn="{StaticResource zBasketCollectionImage}">
+        <Setter Property="WidthRequest" Value="80"/>
+        <Setter Property="HeightRequest" Value="80"/>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Main.Find" 
+             BackgroundColor="{StaticResource BackgroundPageColor}"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}"
+             Shell.NavBarHasShadow="False">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellFindGrid}">
+            <Frame Style="{StaticResource ShellFindFrame}">
+                <Grid Style="{StaticResource ShellFindInsideGrid}">
+                    <Image Style="{StaticResource ShellFindImage}"/>
+                    <Entry Style="{StaticResource ShellFindEntry}"
+                           x:Name="FindEntry"/>
+                </Grid>
+            </Frame>
+            <Button Style="{StaticResource ShellFindButton}"
+                    x:Name="Search"
+                    Clicked="Search_Clicked"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <CollectionView Style="{StaticResource zProductListCollectionView}"
+                        ItemsSource="{Binding ProductLists}"
+                        x:Name="ItemsCollection"
+                        SelectionChanged="ItemsCollection_SelectionChanged">
+            <CollectionView.Header>
+                <Grid Style="{StaticResource zFilterSortingGrid}">
+                    <Picker Style="{StaticResource zFilterSortingFilter}"
+                            x:Name="FilterPicker"
+                            SelectedIndexChanged="FilterPicker_SelectedIndexChanged"    
+                            IsVisible="{StaticResource Filter}"/>
+                    <Picker Style="{StaticResource zFilterSortingSorting}"
+                            x:Name="Sorting"
+                            SelectedIndexChanged="Sorting_SelectedIndexChanged"
+                            IsVisible="{StaticResource Filter}">
+                    </Picker>
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Frame Style="{StaticResource zProductListFrame}">
+                            <StackLayout Style="{StaticResource zProductListWrapperStack}">
+                                <Grid>
+                                    <Frame Style="{StaticResource zProductListFrameImage}">
+                                        <Image Style="{StaticResource zProductListImage}"
+                                               Source="{Binding Image}"/>
+                                    </Frame>
+                                    <Image Style="{StaticResource zProductListSale}"
+                                           IsVisible="{Binding BoolDiscount}"/>
+                                </Grid>
+                                <Grid>
+                                    <StackLayout Style="{StaticResource zProductListStackLayoutPrice}">
+                                        <Label Style="{StaticResource zProductListPriceStrikethrough}"
+                                               Text="{Binding OldPrice}"
+                                               IsVisible="{Binding BoolDiscount}"/>
+                                        <Label Style="{StaticResource zProductListPrice}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Price}"/>
+                                                    <Span Text=" руб."/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                    <Label Style="{StaticResource zProductListName}"
+                                           Text="{Binding Product.ProductName}"/>
+                                    <ImageButton Style="{StaticResource zProductListAddBasket}"
+                                                 Clicked="ImageButton_Clicked"
+                                                 Command="{Binding AddToBasket}"
+                                                 CommandParameter="{Binding .}"
+                                                 />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

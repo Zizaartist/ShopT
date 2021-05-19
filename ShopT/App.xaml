@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.App">
+    <Application.Resources>
+        <ResourceDictionary Source="ResourceDictionary/BlueTheme.xaml"
+                            x:Name="CurrentTheme">
+            <x:Boolean x:Key="Bonus">true</x:Boolean>
+            <x:Boolean x:Key="Filter">true</x:Boolean>
+            <x:Boolean x:Key="Equaring">true</x:Boolean>
+            <x:Boolean x:Key="Banner">true</x:Boolean>
+            <Style x:Key="ButtonChoice" TargetType="Button" BasedOn="{StaticResource ButtonChoice}" x:Name="Payment"/>
+            <Style x:Key="ButtonChoiced" TargetType="Button" BasedOn="{StaticResource ButtonChoiced}" x:Name="PaymentSelected"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

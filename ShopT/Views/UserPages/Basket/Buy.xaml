@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Basket.Buy"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}"
+             BackgroundColor="{StaticResource BackgroundPageColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Оформление"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView Style="{StaticResource BuyScroll}">
+            <Frame Style="{StaticResource BuyWrapperFrame}">
+                <StackLayout Style="{StaticResource BuyWrapperStack}">
+                    <Label Style="{StaticResource BuyLabel}"
+                           Text="Имя"/>
+                    <Entry Style="{StaticResource BlankEntry}"
+                           Text="{Binding Name, Mode=TwoWay}"
+                           Placeholder="Например Иван"/>
+                    <Label Style="{StaticResource BuyLabel}"
+                           Text="Улица"/>
+                    <Entry Style="{StaticResource BlankEntry}"
+                           Text="{Binding Street, Mode=TwoWay}"
+                           Placeholder="Например Ленина"/>
+                    <Grid>
+                        <StackLayout Spacing="0">
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Дом"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Text="{Binding House, Mode=TwoWay}"
+                                   Placeholder="Например 10/1"/>
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Этаж"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Text="{Binding Floor, Mode=TwoWay}"
+                                   Placeholder="Например 5"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1"
+                                         Spacing="0">
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Подъезд"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Text="{Binding Entrance, Mode=TwoWay}"
+                                   Placeholder="Например 5"/>
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Квартира"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Text="{Binding Apartment, Mode=TwoWay}"
+                                   Placeholder="Например 89"/>
+                        </StackLayout>
+                    </Grid>
+                    <Entry Style="{StaticResource BlankEntry}"
+                           Text="{Binding Commentary, Mode=TwoWay}"
+                           Placeholder="Комментарий к заказу"/>
+                    <StackLayout Style="{StaticResource BuyButtonsStack}">
+                        <Button Style="{StaticResource ButtonChoiced}"
+                                Text="Наличными"
+                                x:Name="Cash"
+                                Clicked="ChangePaymentMethod_Clicked"/>
+                        <Button Style="{StaticResource ButtonChoice}"
+                                Text="Картой онлайн"
+                                IsVisible="{StaticResource Equaring}"
+                                x:Name="CardOnline"
+                                Clicked="ChangePaymentMethod_Clicked"/>
+                        <Button Style="{StaticResource ButtonChoice}"
+                                Text="Картой курьеру"
+                                x:Name="Card"
+                                Clicked="ChangePaymentMethod_Clicked"/>
+                    </StackLayout>
+                    <Picker Title="Сдача с купюры"
+                            x:Name="DeliveryOfMoney"
+                            Style="{StaticResource SimplePicker}">
+                        <Picker.Items>
+                            <x:String>500 руб.</x:String>
+                            <x:String>1000 руб.</x:String>
+                            <x:String>2000 руб.</x:String>
+                            <x:String>5000 руб.</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Grid IsVisible="{StaticResource Bonus}">
+                        <Label Style="{StaticResource BuyLabel}"
+                               Text="Использовать бонусы"/>
+                        <Switch Style="{StaticResource BuyBonusSwitch}"
+                                IsToggled="{Binding UsePoints, Mode=TwoWay}"
+                                x:Name="BonusSwitch"/>
+                    </Grid>
+                    <Label Style="{StaticResource BuyConditions}"
+                           Text="Максимальный лимит использования бонусов до 30% от суммы заказа"
+                           IsVisible="{StaticResource Bonus}"/>
+                    <Label Style="{StaticResource BuyLabelSummHeader}"/>
+                    <StackLayout Spacing="3"
+                                 IsVisible="{StaticResource Bonus}">
+                        <Button Style="{StaticResource BuyLine}"
+                                IsVisible="{Binding Source={x:Reference BonusSwitch}, Path=IsToggled}"/>
+                        <Label Style="{StaticResource BuyVarOne}"
+                               IsVisible="{Binding Source={x:Reference BonusSwitch}, Path=IsToggled}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding InitialSum}"
+                                          x:Name="PayLabel"/>
+                                    <Span Text=" руб."/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout HorizontalOptions="End"
+                                     Orientation="Horizontal"
+                                     x:Name="BonusStack"
+                                     IsVisible="{Binding Source={x:Reference BonusSwitch}, Path=IsToggled}">
+                            <Label Style="{StaticResource BuyVarTwo}">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="- "/>
+                                        <Span Text="{Binding Saving}"
+                                              x:Name="BonusLabel"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Image Style="{StaticResource BonusImage}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Button Style="{StaticResource BuyLine}"/>
+                    <Label Style="{StaticResource BuySumm}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Source={x:Reference PayLabel}, Path=Text}"
+                                      x:Name="SumLabel"/>
+                                <Span Text=" руб."/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Button Style="{StaticResource BuyConfirmButton}"
+                            x:Name="Confirm"
+                            IsEnabled="{Binding ValidDelivery}"
+                            Clicked="Confirm_Clicked"/>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

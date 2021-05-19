@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Basket.BasketPage"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}"
+             BackgroundColor="{StaticResource BackgroundPageColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Корзина"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <CollectionView Style="{StaticResource zBasketCollection}"
+                        x:Name="OrderCollection"
+                        ItemsSource="{Binding OrderDetails}">
+            <CollectionView.Header>
+                <Grid Style="{StaticResource zBasketCollectionHeaderGrid}">
+                    <pancakeview:PancakeView Style="{StaticResource zBasketCollectionHeaderPancake}"/>
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Style="{StaticResource zBasketCollectionStackItem}">
+                        <pancakeview:PancakeView Style="{StaticResource zBasketCollectionPancake}">
+                            <Grid Style="{StaticResource zBasketCollectionWrapperItemGrid}">
+                                <Frame Style="{StaticResource zBasketCollectionFrameImage}">
+                                    <Image Style="{StaticResource zBasketCollectionImage}"
+                                          Source="{Binding Logo}"/>
+                                </Frame>
+                                <StackLayout Style="{StaticResource zBasketCollectionTextStack}">
+                                    <Label Style="{StaticResource zBasketCollectionName}"
+                                           Text="{Binding OrderDetail.Product.ProductName}"/>
+                                    <Label Style="{StaticResource zBasketCollectionHeaderCount}"/>
+                                    <StackLayout Style="{StaticResource zBasketCollectionCountStack}">
+                                        <ImageButton Style="{StaticResource zBasketCollectionPlus}"
+                                                     Command="{Binding SubCount}"
+                                                     />
+                                        <Label Style="{StaticResource zBasketCollectionCount}"
+                                               Text="{Binding Count}"/>
+                                        <ImageButton Style="{StaticResource zBasketCollectionPlus}"
+                                                     Command="{Binding AddCount}"
+                                                     />
+                                        <Label Style="{StaticResource zBasketCollectionSumm}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding SumPrice}"/>
+                                                    <Span Text=" руб."/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </pancakeview:PancakeView>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <StackLayout Style="{StaticResource zBasketCollectionFooterWrapper}">
+                    <pancakeview:PancakeView Style="{StaticResource zBasketCollectionFooterPancake}">
+                        <StackLayout Style="{StaticResource zBasketCollectionFooterStack}">
+                            <Label Style="{StaticResource zBasketCollectionConditionHeader}"/>
+                            <Label Style="{StaticResource zBasketCollectionCondition}"
+                                   Text="Условия доставки"/>
+                            <Frame Style="{StaticResource zButtonBasketFrame}">
+                                <Grid Style="{StaticResource zButtonBasketGrid}">
+                                    <Label Style="{StaticResource zButtonBasketLabelHeader}"/>
+                                    <Label Style="{StaticResource zButtonBasketLabel}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding TotalSum}"/>
+                                                <Span Text=" р"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Button Style="{StaticResource zBasketButton}"
+                                            x:Name="Basket"
+                                            Clicked="Basket_Clicked"/>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </pancakeview:PancakeView>
+                </StackLayout>
+            </CollectionView.Footer>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

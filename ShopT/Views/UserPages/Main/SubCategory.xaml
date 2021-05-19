@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Main.SubCategory"
+             BackgroundColor="{StaticResource BackgroundPageColor}"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Категории"
+                   x:Name="HeaderLabel"/>
+            <Label x:Name="Points"
+                   Text="{Binding Points, StringFormat='У Вас {0}'}"
+                   Style="{StaticResource ShellBonus}"/>
+            <ImageButton Style="{StaticResource ShellBonusButton}"
+                         IsVisible="{StaticResource Bonus}"
+                         Clicked="ImageButton_Clicked"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <RefreshView x:Name="Refreshable"
+                     IsRefreshing="{Binding IsWorking}"
+                     Command="{Binding GetInitialData}">
+            <CollectionView Style="{StaticResource zCategoryCollectionView}"
+                        x:Name="CategoriesCollection"
+                        SelectionChanged="CategoriesCollection_SelectionChanged"
+                        ItemsSource="{Binding Categories}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame Style="{StaticResource zCategoryCollectionFrame}">
+                                <Grid Style="{StaticResource zCategoryCollectionGrid}">
+                                    <Frame Style="{StaticResource zCategoryCollectionFrameImage}">
+                                        <Image Style="{StaticResource zCategoryCollectionImage}"
+                                           Source="{Binding Image}"/>
+                                    </Frame>
+                                    <Label Style="{StaticResource zCategoryCollectionLabel}"
+                                       Text="{Binding Category.CategoryName}"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

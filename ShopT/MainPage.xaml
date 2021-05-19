@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:viewsmain="clr-namespace:ShopT.Views.UserPages.Main"
+       xmlns:viewsorders="clr-namespace:ShopT.Views.UserPages.Orders"
+       xmlns:viewsbasket="clr-namespace:ShopT.Views.UserPages.Basket"
+       xmlns:viewsprofile="clr-namespace:ShopT.Views.UserPages.Profile"
+       x:Class="ShopT.MainPage">
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor"
+                    Value="{StaticResource BottomPageColor}" />
+            <Setter Property="Shell.TabBarTitleColor"
+                    Value="{StaticResource IconCurrentColor}" />
+            <Setter Property="Shell.TabBarUnselectedColor"
+                    Value="{StaticResource IconUnselectedColor}" />
+        </Style>
+    </Shell.Resources>
+    <TabBar>
+        <Tab Title="Главная"
+             Icon="{StaticResource HomeIcon}">
+            <ShellContent ContentTemplate="{DataTemplate viewsmain:CategoryPages}" />
+        </Tab>
+        <Tab Title="Заказы"
+             Icon="{StaticResource OrdersIcon}">
+            <ShellContent ContentTemplate="{DataTemplate viewsorders:OrdersPage}" />
+        </Tab>
+        <Tab Title="Корзина"
+             Icon="{StaticResource BasketIcon}">
+            <ShellContent ContentTemplate="{DataTemplate viewsbasket:BasketPage}" />
+        </Tab>
+        <Tab Title="Профиль"
+             Icon="{StaticResource ProfileIcon}">
+            <ShellContent ContentTemplate="{DataTemplate viewsprofile:Profile}" />
+        </Tab>
+    </TabBar>
+</Shell>
+

@@ -1,0 +1,870 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.ResourceDictionary.SimpleTheme">
+    <!--COLORS-->
+    <Color x:Key="ThemeColor">#000001</Color>
+    <Color x:Key="White">#FEFFFF</Color>
+    <Color x:Key="Black">#000001</Color>
+    <Color x:Key="GrayColorLight">#EFEFEF</Color>
+    <Color x:Key="GrayColor">#A7A7A7</Color>
+    <!--ВЫБОР ЦВЕТОВ TABBAR И SHELL-->
+    <!--ЦВЕТ КНОПКИ НАЗАД-->
+    <Color x:Key="HeaderBackColor">#000001</Color>
+    <!--ФОНОВЫЙ ЦВЕТ ГОЛОВЫ-->
+    <Color x:Key="HeaderPageColor">#EFEFEF</Color>
+    <!--ФОНОВЫЙ ЦВЕТ ПОДВАЛА-->
+    <Color x:Key="BottomPageColor">#EFEFEF</Color>
+    <!--ЦВЕТ ВЫБРАННОЙ ИКОНКИ ПОДВАЛА И ТЕКСТА ГОЛОВЫ-->
+    <Color x:Key="IconCurrentColor">#000001</Color>
+    <!--ЦВЕТ НЕАКТИВНЫХ ИКОНОК ПОДВАЛА-->
+    <Color x:Key="IconUnselectedColor">#A7A7A7</Color>
+    <!--ФОНОВЫЙ ЦВЕТ ЛЮБОЙ СТРАНИЦЫ-->
+    <Color x:Key="BackgroundPageColor">#EFEFEF</Color>
+    <!--ЦВЕТ ТЕКСТА И ФОНА МАГАЗИНА-->
+    <Color x:Key="ShopFrameColor">#f5f5f5</Color>
+    <Color x:Key="ShopTextColor">#EFEFEF</Color>
+    <!--FONTSFAMILY-->
+    <x:String x:Key="NeoSansPro">NeoSansPro</x:String>
+    <x:String x:Key="NeoSansProBold">NeoSansProBold</x:String>
+    <!--NAMESOFIMAGES-->
+    <x:String x:Key="BonusIcon">themesimpleBonusIcon.png</x:String>
+    <x:String x:Key="GrayFind">GrayFind.png</x:String>
+    <x:String x:Key="Discount">themesimpleDiscount.png</x:String>
+    <x:String x:Key="AddBasket">AddBasket.png</x:String>
+    <x:String x:Key="PlusButton">PlusButton.png</x:String>
+    <x:String x:Key="MinusButton">MinusButton.png</x:String>
+    <x:String x:Key="Next">Next.png</x:String>
+    <x:String x:Key="SyberiaLogo">SyberiaLogo.png</x:String>
+    <x:String x:Key="HomeIcon">HomeIcon.png</x:String>
+    <x:String x:Key="OrdersIcon">OrdersIcon.png</x:String>
+    <x:String x:Key="BasketIcon">BasketIcon.png</x:String>
+    <x:String x:Key="ProfileIcon">ProfileIcon.png</x:String>
+    <x:String x:Key="ListIcon">ListIcon.png</x:String>
+    <x:String x:Key="MapsIcon">MapsIcon.png</x:String>
+    <x:String x:Key="DownIcon">simplethemeDown.png</x:String>
+    <!--BUTTONS-->
+    <Style x:Key="BlankButton" TargetType="Button">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="TextTransform" Value="None"/>
+    </Style>
+    <Style x:Key="SimpleButton" TargetType="Button" BasedOn="{StaticResource BlankButton}">
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="WidthRequest" Value="320"/>
+        <Setter Property="CornerRadius" Value="40"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="{DynamicResource White}"/>
+    </Style>
+    <Style x:Key="ButtonChoice" TargetType="Button" BasedOn="{StaticResource BlankButton}">
+        <Setter Property="WidthRequest" Value="112"/>
+        <Setter Property="HeightRequest" Value="52"/>
+        <Setter Property="CornerRadius" Value="11"/>
+        <Setter Property="TextColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+        <Setter Property="BorderWidth" Value="1"/>
+        <Setter Property="BorderColor" Value="{DynamicResource GrayColorLight}"/>
+    </Style>
+    <Style x:Key="ButtonChoiced" TargetType="Button" BasedOn="{StaticResource BlankButton}">
+        <Setter Property="WidthRequest" Value="112"/>
+        <Setter Property="HeightRequest" Value="52"/>
+        <Setter Property="CornerRadius" Value="11"/>
+        <Setter Property="TextColor" Value="{DynamicResource White}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}"/>
+    </Style>
+    <!--IMAGEBUTTONS-->
+    <Style x:Key="ImageButtonSimple" TargetType="ImageButton">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="Aspect" Value="AspectFit"/>
+    </Style>
+    <Style x:Key="ImageButtonBonus" TargetType="ImageButton" BasedOn="{StaticResource ImageButtonSimple}">
+        <Setter Property="Source" Value="{DynamicResource BonusIcon}"/>
+    </Style>
+    <!--ENTRIES-->
+    <Style x:Key="BlankEntry" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="PlaceholderColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="TextColor" Value="{DynamicResource Black}"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style x:Key="EntryGray" TargetType="Entry" BasedOn="{StaticResource BlankEntry}">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="WidthRequest" Value="320"/>
+    </Style>
+    <!--FRAMES-->
+    <Style x:Key="EntryFrame" TargetType="Frame">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource GrayColorLight}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Padding" Value="30,10,30,10"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="WidthRequest" Value="280"/>
+    </Style>
+    <Style x:Key="DefaultCornerFrame" TargetType="Frame">
+        <Setter Property="CornerRadius" Value="80"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    <!--IMAGES-->
+    <Style x:Key="BlankImage" TargetType="Image">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="Aspect" Value="AspectFit"/>
+    </Style>
+    <Style x:Key="RegistrationImage" TargetType="Image" BasedOn="{StaticResource BlankImage}">
+        <Setter Property="WidthRequest" Value="150"/>
+        <Setter Property="HeightRequest" Value="150"/>
+    </Style>
+    <Style x:Key="BonusImage" TargetType="Image" BasedOn="{StaticResource BlankImage}">
+        <Setter Property="Source" Value="{DynamicResource BonusIcon}"/>
+        <Setter Property="WidthRequest" Value="13"/>
+        <Setter Property="HeightRequest" Value="13"/>
+    </Style>
+    <!--LABELS-->
+    <Style x:Key="Font_14" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource Black}"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+    </Style>
+    <Style x:Key="Font_14Bold" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+    <!--CHECKBOX-->
+    <Style x:Key="SimpleCheckbox" TargetType="CheckBox">
+        <Setter Property="Color" Value="{DynamicResource ThemeColor}"/>
+    </Style>
+    <!--PICKERS-->
+    <Style x:Key="SimplePicker" TargetType="Picker">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextColor" Value="{DynamicResource Black}"/>
+        <Setter Property="TitleColor" Value="{DynamicResource GrayColor}"/>
+    </Style>
+    <Style x:Key="SortingFilter" TargetType="Picker">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+        <Setter Property="TextTransform" Value="None"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="Margin" Value="-2,0,-2,-30"/>
+    </Style>
+    <!--ADDBANNER-->
+    <Style x:Key="zAddBannerFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="zAddBannerImage" TargetType="Image">
+        <Setter Property="Aspect" Value="AspectFit"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="180"/>
+    </Style>
+    <!--HEADERCATEGORYPAGES-->
+    <Style x:Key="zHeaderCategoryPagesStackLayout" TargetType="StackLayout">
+        <Setter Property="Spacing" Value="0"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="20,10,20,10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource HeaderPageColor}"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesFrame" TargetType="Frame" BasedOn="{StaticResource DefaultCornerFrame}">
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesImage" TargetType="Image" BasedOn="{StaticResource RegistrationImage}">
+        <Setter Property="Aspect" Value="AspectFit"/>
+        <Setter Property="WidthRequest" Value="45"/>
+        <Setter Property="HeightRequest" Value="45"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesNameStack" TargetType="StackLayout">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Margin" Value="65,0,0,0"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesDownImage" TargetType="Image">
+        <Setter Property="Source" Value="{DynamicResource DownIcon}"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Aspect" Value="AspectFit"/>
+        <Setter Property="Margin" Value="5,5,0,0"/>
+        <Setter Property="WidthRequest" Value="15"/>
+        <Setter Property="HeightRequest" Value="15"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesLabelName" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="TextColor" Value="{DynamicResource HeaderBackColor}"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesBackButton" TargetType="Button">
+        <Setter Property="Margin" Value="0,0,30,0"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesImageButton" TargetType="ImageButton" BasedOn="{StaticResource ImageButtonSimple}">
+        <Setter Property="Source" Value="{DynamicResource GrayFind}"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="HeightRequest" Value="25"/>
+        <Setter Property="WidthRequest" Value="25"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesLabel" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Padding" Value="20,10,20,10"/>
+        <Setter Property="Text" Value="Категории"/>
+    </Style>
+    <!--CATEGORYCOLLECTION-->
+    <Style x:Key="zCategoryCollectionView" TargetType="CollectionView">
+        <Setter Property="ItemsLayout">
+            <GridItemsLayout Orientation="Vertical"
+                             Span="2"/>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="0,20,0,0"/>
+        <Setter Property="WidthRequest" Value="175"/>
+        <Setter Property="HeightRequest" Value="175"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionGrid" TargetType="Grid">
+        <Setter Property="RowDefinitions" Value="*,*,*"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionFrameImage" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Grid.RowSpan" Value="3"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionImage" TargetType="Image" BasedOn="{StaticResource RegistrationImage}">
+        <Setter Property="WidthRequest" Value="175"/>
+        <Setter Property="HeightRequest" Value="175"/>
+        <Setter Property="Aspect" Value="AspectFit"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionLabel" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="BackgroundColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="TextColor" Value="{DynamicResource White}"/>
+        <Setter Property="WidthRequest" Value="175"/>
+        <Setter Property="HeightRequest" Value="58"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="Grid.Row" Value="2"/>
+    </Style>
+    <!--PRODUCTLIST-->
+    <Style x:Key="zProductListCollectionView" TargetType="CollectionView">
+        <Setter Property="ItemsLayout">
+            <GridItemsLayout Orientation="Vertical"
+                             Span="2"/>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style x:Key="zProductListFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+    </Style>
+    <Style x:Key="zProductListWrapperStack" TargetType="StackLayout">
+        
+    </Style>
+    <Style x:Key="zProductListFrameImage" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="zProductListImage" TargetType="Image">
+        <Setter Property="Aspect" Value="AspectFit"/>
+        <Setter Property="HeightRequest" Value="175"/>
+    </Style>
+    <Style x:Key="zProductListSale" TargetType="Image" BasedOn="{StaticResource BlankImage}">
+        <Setter Property="Source" Value="{DynamicResource Discount}"/>
+        <Setter Property="WidthRequest" Value="50"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="Margin" Value="0,-10,-10,0"/>
+    </Style>
+    <Style x:Key="zProductListStackLayoutPrice" TargetType="StackLayout">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Padding" Value="10,0,0,0"/>
+    </Style>
+    <Style x:Key="zProductListPrice" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style x:Key="zProductListPriceStrikethrough" TargetType="Label" BasedOn="{StaticResource zProductListPrice}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="TextDecorations" Value="Strikethrough"/>
+    </Style>
+    <Style x:Key="zProductListName" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="Margin" Value="10,0,10,10"/>
+        <Setter Property="Grid.Row" Value="1"/>
+    </Style>
+    <Style x:Key="zProductListAddBasket" TargetType="ImageButton" BasedOn="{StaticResource ImageButtonSimple}">
+        <Setter Property="Grid.RowSpan" Value="2"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="WidthRequest" Value="32"/>
+        <Setter Property="HeightRequest" Value="32"/>
+        <Setter Property="Source" Value="{DynamicResource AddBasket}"/>
+    </Style>
+    <!--ORDERSDETAILSUMM-->
+    <Style x:Key="zOrdersDetailSummGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="20,10,20,10"/>
+    </Style>
+    <Style x:Key="zOrdersDetailSummFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+    </Style>
+    <Style x:Key="zOrdersDetailSummLabel" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        
+    </Style>
+    <!--FILTERSORTING-->
+    <Style x:Key="zFilterSortingGrid" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="*,*"/>
+        <Setter Property="RowDefinitions" Value="Auto"/>
+        <Setter Property="Padding" Value="0,1,0,20"/>
+    </Style>
+    <Style x:Key="zFilterSortingFilter" TargetType="Picker" BasedOn="{StaticResource SortingFilter}">
+        <Setter Property="TitleColor" Value="{DynamicResource Black}"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+        <Setter Property="Title" Value="Фильтр"/>
+    </Style>
+    <Style x:Key="zFilterSortingSorting" TargetType="Picker" BasedOn="{StaticResource zFilterSortingFilter}">
+        <Setter Property="TitleColor" Value="{DynamicResource Black}"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Title" Value="Сортировка"/>
+    </Style>
+    <!--PRODUCTINFO-->
+    <Style x:Key="zProductInfoMainStack" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20,0,20,0"/>
+        <Setter Property="Spacing" Value="15"/>
+    </Style>
+    <Style x:Key="zProductInfoFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="-20,0,-20,0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+    <Style x:Key="zProductInfoImage" TargetType="Image">
+        <Setter Property="HeightRequest" Value="300"/>
+        <Setter Property="Aspect" Value="AspectFit"/>
+    </Style>
+    <Style x:Key="zProductInfoLPrice" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="zProductInfoCountHeader" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="Text" Value="Количество:"/>
+    </Style>
+    <Style x:Key="zProductInfoGrid" TargetType="Grid">
+        <Setter Property="RowDefinitions" Value="Auto"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="ColumnDefinitions" Value="Auto,Auto,Auto"/>
+    </Style>
+    <Style x:Key="zProductInfoMinus" TargetType="ImageButton">
+        <Setter Property="Source" Value="{DynamicResource MinusButton}"/>
+        <Setter Property="Margin" Value="0,0,5,0"/>
+        <Setter Property="WidthRequest" Value="25"/>
+        <Setter Property="HeightRequest" Value="25"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    <Style x:Key="zProductInfoCount" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Margin" Value="0,0,5,0"/>
+    </Style>
+    <Style x:Key="zProductInfoPlus" TargetType="ImageButton" BasedOn="{StaticResource zProductInfoMinus}">
+        <Setter Property="Source" Value="{DynamicResource PlusButton}"/>
+        <Setter Property="Grid.Column" Value="2"/>
+    </Style>
+    <Style x:Key="zProductInfoDescriptionHeader" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Информация о товаре"/>
+    </Style>
+    <Style x:Key="zProductInfoDescription" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="Text" Value="Количество:"/>
+    </Style>
+    <Style x:Key="zProductInfoAdd" TargetType="Button" BasedOn="{StaticResource SimpleButton}">
+        <Setter Property="Text" Value="Отправить в корзину"/>
+    </Style>
+    <!--BONUSCOLLECTION-->
+    <Style x:Key="zBonusCollection" TargetType="CollectionView">
+        <Setter Property="SelectionMode" Value="None"/>
+    </Style>
+    <Style x:Key="zBonusCollectionWrapperGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+    <Style x:Key="zBonusCollectonFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="25,10,25,10"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+    </Style>
+    <Style x:Key="zBonusCollectionInsideGrid" TargetType="Grid">
+        <Setter Property="RowDefinitions" Value="Auto"/>
+        <Setter Property="ColumnDefinitions" Value="*,Auto"/>
+    </Style>
+    <Style x:Key="zBonusCollectionTextStack" TargetType="StackLayout">
+        
+    </Style>
+    <Style x:Key="zBonusCollectionLabel" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Начисление баллов за заказ"/>
+    </Style>
+    <Style x:Key="zBonusCollectionDate" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+    </Style>
+    <Style x:Key="zBonusCollectionBonusStack" TargetType="StackLayout">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="Grid.Column" Value="1"/>
+    </Style>
+    <Style x:Key="zBonusCollectionBall" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="zBonusCollectionBonus" TargetType="ImageButton" BasedOn="{StaticResource ImageButtonBonus}">
+    </Style>
+    <!--ORDERSCOLLECTION-->
+    <Style x:Key="zOrdersCollection" TargetType="CollectionView">
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionWrapperStack" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20,5,20,5"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionWrapperFrame" TargetType="Frame">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionGrid" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="Auto,*"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionImageFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionImage" TargetType="Image" BasedOn="{StaticResource RegistrationImage}">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="Aspect" Value="AspectFill"/>
+        <Setter Property="WidthRequest" Value="80"/>
+        <Setter Property="HeightRequest" Value="80"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionStackText" TargetType="StackLayout">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="Spacing" Value="5"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionNameOrder" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="TextColor" Value="{DynamicResource Black}"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionDate" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionAdress" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+    </Style>
+    <Style x:Key="zOrdersCollectionPrice" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+    </Style>
+    <!--BASKETCOLLECTION-->
+    <Style x:Key="zBasketCollection" TargetType="CollectionView">
+        <Setter Property="SelectionMode" Value="None"/>
+    </Style>
+    <Style x:Key="zBasketCollectionHeaderGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="20,20,20,0"/>
+    </Style>
+    <Style x:Key="zBasketCollectionHeaderPancake" TargetType="pancakeview:PancakeView">
+        <Setter Property="CornerRadius" Value="10,10,0,0"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+        <Setter Property="HeightRequest" Value="10"/>
+    </Style>
+    <Style x:Key="zBasketCollectionStackItem" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20,0,20,0"/>
+    </Style>
+    <Style x:Key="zBasketCollectionPancake" TargetType="pancakeview:PancakeView">
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+    </Style>
+    <Style x:Key="zBasketCollectionWrapperItemGrid" TargetType="Grid">
+        <Setter Property="RowDefinitions" Value="Auto"/>
+        <Setter Property="ColumnDefinitions" Value="Auto,Auto"/>
+    </Style>
+    <Style x:Key="zBasketCollectionFrameImage" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+    <Style x:Key="zBasketCollectionImage" TargetType="Image" BasedOn="{StaticResource RegistrationImage}">
+        <Setter Property="WidthRequest" Value="110"/>
+        <Setter Property="HeightRequest" Value="110"/>
+    </Style>
+    <Style x:Key="zBasketCollectionTextStack" TargetType="StackLayout">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+    </Style>
+    <Style x:Key="zBasketCollectionName" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Margin" Value="0,0,0,20"/>
+    </Style>
+    <Style x:Key="zBasketCollectionHeaderCount" TargetType="Label" BasedOn="{StaticResource zProductInfoCountHeader}">
+        
+    </Style>
+    <Style x:Key="zBasketCollectionCountStack" TargetType="StackLayout">
+        <Setter Property="Grid.Row" Value="2"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+    </Style>
+    <Style x:Key="zBasketCollectionMinus" TargetType="ImageButton" BasedOn="{StaticResource zProductInfoMinus}">
+        
+    </Style>
+    <Style x:Key="zBasketCollectionCount" TargetType="Label" BasedOn="{StaticResource zProductInfoCount}">
+        
+    </Style>
+    <Style x:Key="zBasketCollectionPlus" TargetType="ImageButton" BasedOn="{StaticResource zProductInfoPlus}">
+        
+    </Style>
+    <Style x:Key="zBasketCollectionSumm" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="Margin" Value="0,0,5,0"/>
+    </Style>
+    <Style x:Key="zBasketCollectionFooterWrapper" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20,0,20,20"/>
+    </Style>
+    <Style x:Key="zBasketCollectionFooterPancake" TargetType="pancakeview:PancakeView">
+        <Setter Property="CornerRadius" Value="0,0,20,20"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+        <Setter Property="Padding" Value="10,0,10,10"/>
+    </Style>
+    <Style x:Key="zBasketCollectionFooterStack" TargetType="StackLayout"/>
+    <Style x:Key="zBasketCollectionConditionHeader" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Условия доставки"/>
+    </Style>
+    <Style x:Key="zBasketCollectionCondition" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+    </Style>
+    <!--BUTTONBASKET-->
+    <Style x:Key="zButtonBasketFrame" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="CornerRadius" Value="18"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="Padding" Value="10,0,10,0"/>
+    </Style>
+    <Style x:Key="zButtonBasketGrid" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="Auto,*,Auto"/>
+    </Style>
+    <Style x:Key="zButtonBasketLabelHeader" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="{DynamicResource White}"/>
+        <Setter Property="Text" Value="Оформить заказ на"/>
+    </Style>
+    <Style x:Key="zButtonBasketLabel" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextColor" Value="{DynamicResource White}"/>
+        <Setter Property="Grid.Column" Value="2"/>
+    </Style>
+    <Style x:Key="zBasketButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="Grid.ColumnSpan" Value="3"/>
+    </Style>
+    <!--SHELL-->
+    <Style x:Key="ShellGrid" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="*,Auto,Auto"/>
+        <Setter Property="Padding" Value="0,0,20,0"/>
+    </Style>
+    <Style x:Key="ShellHeader" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="TextColor" Value="{DynamicResource IconCurrentColor}"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="ShellBonus" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="TextColor" Value="{DynamicResource IconCurrentColor}"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="HorizontalTextAlignment" Value="End"/>
+    </Style>
+    <Style x:Key="ShellBonusButton" TargetType="ImageButton" BasedOn="{StaticResource ImageButtonBonus}">
+        <Setter Property="WidthRequest" Value="25"/>
+        <Setter Property="HeightRequest" Value="25"/>
+        <Setter Property="Grid.Column" Value="2"/>
+    </Style>
+    <!--SHELLFIND-->
+    <Style x:Key="ShellFindGrid" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="*,Auto"/>
+        <Setter Property="Padding" Value="0,0,20,0"/>
+    </Style>
+    <Style x:Key="ShellFindFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="0,-10,0,-10"/>
+        <Setter Property="Margin" Value="5,10,0,10"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+    <Style x:Key="ShellFindInsideGrid" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="Auto,*"/>
+    </Style>
+    <Style x:Key="ShellFindImage" TargetType="Image" BasedOn="{StaticResource RegistrationImage}">
+        <Setter Property="Source" Value="GrayFind.png"/>
+        <Setter Property="WidthRequest" Value="15"/>
+        <Setter Property="HeightRequest" Value="15"/>
+        <Setter Property="Margin" Value="10,0,10,0"/>
+    </Style>
+    <Style x:Key="ShellFindEntry" TargetType="Entry" BasedOn="{StaticResource BlankEntry}">
+        <Setter Property="Placeholder" Value="Поиск"/>
+        <Setter Property="Grid.Column" Value="1"/>
+    </Style>
+    <Style x:Key="ShellFindButton" TargetType="Button" BasedOn="{StaticResource ButtonChoice}">
+        <Setter Property="Text" Value="Поиск"/>
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="BorderWidth" Value="0"/>
+        <Setter Property="WidthRequest" Value="80"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource HeaderPageColor}"/>
+        <Setter Property="TextColor" Value="{DynamicResource HeaderBackColor}"/>
+    </Style>
+    <!--BUY-->
+    <Style x:Key="BuyScroll" TargetType="ScrollView">
+        <Setter Property="Padding" Value="0,0,0,20"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    <Style x:Key="BuyWrapperFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="25,25,25,50"/>
+        <Setter Property="HasShadow" Value="False"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+    </Style>
+    <Style x:Key="BuyWrapperStack" TargetType="StackLayout">
+        <Setter Property="Spacing" Value="0"/>
+    </Style>
+    <Style x:Key="BuyLabel" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style x:Key="BuyButtonsStack" TargetType="StackLayout">
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Spacing" Value="10"/>
+        <Setter Property="Margin" Value="-25,10,-25,10"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+    <Style x:Key="BuyBonusSwitch" TargetType="Switch">
+        <Setter Property="BackgroundColor" Value="{DynamicResource White}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="IsToggled" Value="False"/>
+        <Setter Property="OnColor" Value="{DynamicResource ThemeColor}"/>
+        <Setter Property="ThumbColor" Value="{DynamicResource GrayColorLight}"/>
+    </Style>
+    <Style x:Key="BuyConditions" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}"/>
+    </Style>
+    <Style x:Key="BuyLabelSummHeader" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HorizontalTextAlignment" Value="End"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="Text" Value="Итого к оплате"/>
+    </Style>
+    <Style x:Key="BuyLine" TargetType="Button">
+        <Setter Property="HeightRequest" Value="1"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource Black}"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+    </Style>
+    <Style x:Key="BuyVarOne" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="HorizontalTextAlignment" Value="End"/>
+    </Style>
+    <Style x:Key="BuyVarTwo" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="HorizontalTextAlignment" Value="End"/>
+        <Setter Property="TextColor" Value="{DynamicResource ThemeColor}"/>
+    </Style>
+    <Style x:Key="BuySumm" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="HorizontalTextAlignment" Value="End"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style x:Key="BuyConfirmButton" TargetType="Button" BasedOn="{StaticResource SimpleButton}">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Text" Value="Заказать"/>
+        <Setter Property="WidthRequest" Value="370"/>
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Margin" Value="-20,10,-20,0"/>
+    </Style>
+    <!--PROFILE-->
+    <Style x:Key="zProfileStack" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20,20,20,0"/>
+        <Setter Property="Spacing" Value="10"/>
+    </Style>
+    <Style x:Key="zProfileHeader" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Мои данные"/>
+        <Setter Property="Margin" Value="0,0,0,20"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style x:Key="zProfileMyData" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Мои данные"/>
+    </Style>
+    <Style x:Key="zProfileNext" TargetType="Image">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Source" Value="{DynamicResource Next}"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="WidthRequest" Value="11"/>
+        <Setter Property="HeightRequest" Value="11"/>
+    </Style>
+    <Style x:Key="zProfileAbout" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Об организации"/>
+    </Style>
+    <Style x:Key="zProfileLine" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{DynamicResource GrayColor}"/>
+        <Setter Property="HeightRequest" Value="1"/>
+    </Style>
+    <Style x:Key="zProfileInvisibleButton" TargetType="Button">
+        <Setter Property="Grid.ColumnSpan" Value="2"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="HeightRequest" Value="15"/>
+    </Style>
+    <Style x:Key="zProfileButtonClick" TargetType="Grid">
+        
+    </Style>
+    <!--STARTPAGEIMAGE-->
+    <Style x:Key="zSyberiaLogo" TargetType="Image" BasedOn="{StaticResource RegistrationImage}">
+        <Setter Property="Source" Value="{DynamicResource SyberiaLogo}"/>
+        <Setter Property="WidthRequest" Value="180"/>
+        <Setter Property="HeightRequest" Value="82"/>
+        <Setter Property="BackgroundColor" Value="#3D4248"/>
+    </Style>
+    <!--ENTERNUMBER-->
+    <Style x:Key="zEnterNumberGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="30"/>
+        <Setter Property="RowDefinitions" Value="*,*"/>
+    </Style>
+    <Style x:Key="zEnterNumberFrameImage" TargetType="Frame">
+        <Setter Property="CornerRadius" Value="80"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+    </Style>
+    <Style x:Key="zEnterNumberImage" TargetType="Image" BasedOn="{StaticResource RegistrationImage}">
+        
+    </Style>
+    <Style x:Key="zEnterNumberStack" TargetType="StackLayout">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+    </Style>
+    <Style x:Key="zEnterNumberEntryFrame" TargetType="Frame" BasedOn="{StaticResource EntryFrame}">
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    <Style x:Key="zEnterNumberEntry" TargetType="Entry" BasedOn="{StaticResource EntryGray}">
+        <Setter Property="Placeholder" Value="Ввести номер телефона"/>
+    </Style>
+    <Style x:Key="zEnterNumberLabel" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="При подтверждении на номер будет отправлено СМС с паролем"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    <Style x:Key="zEnterNumberButton" TargetType="Button" BasedOn="{StaticResource SimpleButton}">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Text" Value="Отправить"/>
+    </Style>
+    <!--ENTERSMS-->
+    <Style x:Key="zEnterSMSGrid" TargetType="Grid">
+        <Setter Property="Padding" Value="30"/>
+        <Setter Property="RowDefinitions" Value="*,*,*,*,*"/>
+    </Style>
+    <Style x:Key="zEnterSMSFrameImage" TargetType="Frame" BasedOn="{StaticResource zEnterNumberFrameImage}">
+        <Setter Property="Grid.RowSpan" Value="2"/>
+    </Style>
+    <Style x:Key="zEnterSMSImage" TargetType="Image" BasedOn="{StaticResource zEnterNumberImage}">
+
+    </Style>
+    <Style x:Key="zEnterSMSStack" TargetType="StackLayout">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="Grid.Row" Value="2"/>
+        <Setter Property="Grid.RowSpan" Value="3"/>
+    </Style>
+    <Style x:Key="zEnterSMSLabel_1" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="На ваш мобильный телефон отправлен код подтверждения, введите его ниже, чтобы закончить регистрацию"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    <Style x:Key="zEnterSMSEntryFrame" TargetType="Frame" BasedOn="{StaticResource zEnterNumberEntryFrame}">
+        
+    </Style>
+    <Style x:Key="zEnterSMSEntry" TargetType="Entry" BasedOn="{StaticResource zEnterNumberEntry}">
+        <Setter Property="Placeholder" Value="Код"/>
+    </Style>
+    <Style x:Key="zEnterSMSButton" TargetType="Button" BasedOn="{StaticResource zEnterNumberButton}">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Text" Value="Подтвердить"/>
+    </Style>
+    <Style x:Key="zEnterSMSGridCheck" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="Auto,*"/>
+        <Setter Property="RowDefinitions" Value="*,*"/>
+    </Style>
+    <Style x:Key="zEnterSMSCheck_1" TargetType="CheckBox" BasedOn="{StaticResource SimpleCheckbox}">
+
+    </Style>
+    <Style x:Key="zEnterSMSCheck_2" TargetType="CheckBox" BasedOn="{StaticResource SimpleCheckbox}">
+        <Setter Property="Grid.Row" Value="1"/>
+    </Style>
+    <Style x:Key="zEnterSMSLabel_2" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Согласен с обработкой персональных данных и подтверждаю, что ознакомлен с политикой конфиденциальности"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Grid.Column" Value="1"/>
+        
+    </Style>
+    <Style x:Key="zEnterSMSLabel_3" TargetType="Label" BasedOn="{StaticResource Font_14}">
+        <Setter Property="Text" Value="Согласен на получение рекламы"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Grid.Row" Value="1"/>
+    </Style>
+    <!--SHOPLIST-->
+    <Style x:Key="zShopListCollectionView" TargetType="CollectionView">
+        <Setter Property="ItemsLayout">
+            <GridItemsLayout Orientation="Vertical"
+                             Span="1"/>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style x:Key="zShopListWrapperStack" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20"/>
+    </Style>
+    <Style x:Key="zShopListFrame" TargetType="Frame">
+        <Setter Property="Padding" Value="20"/>
+        <Setter Property="CornerRadius" Value="18"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource ShopFrameColor}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HeightRequest" Value="120"/>
+    </Style>
+    <Style x:Key="zShopListGrid" TargetType="Grid">
+        <Setter Property="ColumnDefinitions" Value="120,*"/>
+    </Style>
+    <Style x:Key="zShopListFrameImage" TargetType="Frame">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="80"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource ShopTextColor}"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+    <Style x:Key="zShopListImage" TargetType="Image">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="WidthRequest" Value="100"/>
+        <Setter Property="HeightRequest" Value="100"/>
+        <Setter Property="Aspect" Value="AspectFill"/>
+    </Style>
+    <Style x:Key="zShopListLabel" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+</ResourceDictionary>

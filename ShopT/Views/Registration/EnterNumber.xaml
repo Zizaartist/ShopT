@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.Registration.EnterNumber"
+             BackgroundColor="{StaticResource BackgroundPageColor}">
+    <ContentPage.Content>
+        <Grid Style="{StaticResource zEnterNumberGrid}">
+            <Frame Style="{StaticResource zEnterNumberFrameImage}">
+                <Image Source="Logo.png"
+                       Style="{StaticResource zEnterNumberImage}"/>
+            </Frame>
+            <StackLayout Style="{StaticResource zEnterNumberStack}">
+                <Frame Style="{StaticResource zEnterNumberEntryFrame}">
+                    <Entry Style="{StaticResource zEnterNumberEntry}"
+                           Text="{Binding Phone, Mode=TwoWay}"
+                           Keyboard="Numeric"
+                           x:Name="NumberEntry"/>
+                </Frame>
+                <Label Style="{StaticResource zEnterNumberLabel}"/>
+                <Button Style="{StaticResource zEnterNumberButton}"
+                        x:Name="Confirm"
+                        IsEnabled="{Binding IsValidNumber}"
+                        Clicked="Confirm_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

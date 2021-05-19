@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Profile.UserData"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}"
+             BackgroundColor="{StaticResource BackgroundPageColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Информация о пользователе"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <ScrollView Style="{StaticResource BuyScroll}">
+            <Frame Style="{StaticResource BuyWrapperFrame}">
+                <StackLayout Spacing="0"
+                             x:Name="WrapperStack">
+                    <Label Style="{StaticResource BuyLabel}"
+                           Text="Имя"/>
+                    <Entry Style="{StaticResource BlankEntry}"
+                           Placeholder="Например Иван"
+                           Text="{Binding Name, Mode=TwoWay}"/>
+                    <Label Style="{StaticResource BuyLabel}"
+                           Text="Улица"/>
+                    <Entry Style="{StaticResource BlankEntry}"
+                           Placeholder="Например Ленина"
+                           Text="{Binding Street, Mode=TwoWay}"/>
+                    <Grid>
+                        <StackLayout Spacing="0">
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Дом"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Placeholder="Например 10/1"
+                                   Text="{Binding House, Mode=TwoWay}"/>
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Этаж"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Placeholder="Например 5"
+                                   Text="{Binding Floor, Mode=TwoWay}"/>
+                        </StackLayout>
+                        <StackLayout Grid.Column="1"
+                                         Spacing="0">
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Подъезд"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Placeholder="Например 5"
+                                   Text="{Binding Entrance, Mode=TwoWay}"/>
+                            <Label Style="{StaticResource BuyLabel}"
+                                   Text="Квартира"/>
+                            <Entry Style="{StaticResource BlankEntry}"
+                                   Placeholder="Например 89"
+                                   Text="{Binding Apartment, Mode=TwoWay}"/>
+                        </StackLayout>
+                    </Grid>
+                    <Button Style="{StaticResource SimpleButton}"
+                            Text="Сохранить"
+                            Clicked="Button_Clicked"
+                            Margin="0,40,0,0"/>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

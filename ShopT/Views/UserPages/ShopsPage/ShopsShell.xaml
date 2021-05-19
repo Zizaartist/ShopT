@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="ShopT.Views.UserPages.ShopsPage.ShopsShell"
+       xmlns:viewsmain="clr-namespace:ShopT.Views.UserPages.ShopsPage">
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor"
+                    Value="{StaticResource BottomPageColor}" />
+            <Setter Property="Shell.TabBarTitleColor"
+                    Value="{StaticResource IconCurrentColor}" />
+            <Setter Property="Shell.TabBarUnselectedColor"
+                    Value="{StaticResource IconUnselectedColor}" />
+        </Style>
+    </Shell.Resources>
+    <TabBar>
+        <Tab Title="Список"
+             Icon="{StaticResource ListIcon}">
+            <ShellContent ContentTemplate="{DataTemplate viewsmain:ShopsList}" />
+        </Tab>
+        <Tab Title="Карта"
+             Icon="{StaticResource MapsIcon}">
+            <ShellContent ContentTemplate="{DataTemplate viewsmain:ShopsMaps}" />
+        </Tab>
+    </TabBar>
+</Shell>

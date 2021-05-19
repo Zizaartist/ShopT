@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopT.Views.UserPages.Profile.Profile"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}"
+             BackgroundColor="{StaticResource BackgroundPageColor}">
+    
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Инфо"
+                   />
+            <Label x:Name="Points"
+                   Text="{Binding Points, StringFormat='У Вас {0}'}"
+                   Style="{StaticResource ShellBonus}"
+                   IsVisible="{StaticResource Bonus}"
+                   />
+            <ImageButton Style="{StaticResource ShellBonusButton}"
+                         IsVisible="{StaticResource Bonus}"
+                         Clicked="ImageButton_Clicked"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <StackLayout Style="{StaticResource zProfileStack}">
+            <Label Style="{StaticResource zProfileHeader}"/>
+            <Grid Style="{StaticResource zProfileButtonClick}">
+                <Label Style="{StaticResource zProfileMyData}"/>
+                <Image Style="{StaticResource zProfileNext}"/>
+                <Button Style="{StaticResource zProfileInvisibleButton}"
+                        x:Name="UserData"
+                        Clicked="UserData_Clicked"/>
+            </Grid>
+            <Button Style="{StaticResource zProfileLine}"/>
+            <Grid Style="{StaticResource zProfileButtonClick}">
+                <Label Style="{StaticResource zProfileAbout}"/>
+                <Image Style="{StaticResource zProfileNext}"/>
+                <Button Style="{StaticResource zProfileInvisibleButton}"
+                        x:Name="OrganisationData"
+                        Clicked="OrganisationData_Clicked"/>
+            </Grid>
+            <Button Style="{StaticResource zProfileLine}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
