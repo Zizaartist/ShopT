@@ -2,11 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopT.Views.Registration.StartPage"
-             BackgroundColor="{Binding Source={x:Reference logo}, Path=BackgroundColor}">
+             BackgroundColor="White">
     <ContentPage.Content>
         <Grid>
-            <Image Style="{StaticResource zSyberiaLogo}"
-                   x:Name="logo"/>
+            <ActivityIndicator IsRunning="true"
+                           IsVisible="true"
+                           AbsoluteLayout.LayoutFlags="PositionProportional" 
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center"
+                           />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

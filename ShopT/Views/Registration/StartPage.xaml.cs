@@ -50,13 +50,13 @@ namespace ShopT.Views.Registration
                         break;
                 }
             });
-            Task.Run(() => NewPage());
+            //Task.Run(() => NewPage());
         }
-        async void NewPage()
-        {
-            logo.Opacity = 0;
-            await logo.FadeTo(1, 3000);
-        }
+        //async void NewPage()
+        //{
+        //    logo.Opacity = 0;
+        //    await logo.FadeTo(1, 3000);
+        //}
 
         private async Task<AuthResult> Authorize()
         {

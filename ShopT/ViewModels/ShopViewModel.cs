@@ -14,7 +14,7 @@ using Xamarin.Forms;
 
 namespace ShopT.ViewModels
 {
-    class ShopViewModel : CollectionViewModel
+    public class ShopViewModel : CollectionViewModel
     {
         private ObservableRangeCollection<ShopLocal> shops;
         public ObservableRangeCollection<ShopLocal> Shops
@@ -33,7 +33,6 @@ namespace ShopT.ViewModels
 
             GetInitial();
         }
-
 
         public async void GetInitial()
         {
@@ -54,6 +53,7 @@ namespace ShopT.ViewModels
                         localizedList.Add(new ShopLocal(item));
                     }
 
+                    StaticShopLocals.shopLocals = localizedList;
                     Shops.AddRange(localizedList);
 
                 }
