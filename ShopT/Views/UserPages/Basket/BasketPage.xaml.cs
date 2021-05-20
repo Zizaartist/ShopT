@@ -26,13 +26,14 @@ namespace ShopT.Views.UserPages.Basket
         {
             CacheFunctions cache = new CacheFunctions();
 
-            string qew = await cache.tryToGet<string>($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.TOKENTYPE_CACHE.key}", CacheFunctions.BlobCaches.Secure);
-            if (qew == "Default")
+            string qew = await cache.tryToGet<string>($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.TOKENTYPE_CACHE.key}", CacheFunctions.BlobCaches.Secure);
+            if (qew == "Default" || qew == default)
             {
                 await Navigation.PushAsync(new EnterNumber());
             }
             else
             {
+                await new ShopConfigViewModel().RefreshConfiguration(); //ожидаем обновления конфигурации
                 await Navigation.PushAsync(new Buy(basketVM));
             }
         }

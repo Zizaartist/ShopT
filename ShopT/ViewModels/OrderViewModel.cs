@@ -1,10 +1,13 @@
 ﻿using Akavache;
+using MvvmHelpers;
 using ShopT.Models;
 using ShopT.Models.EnumModels;
 using ShopT.Models.LocalModels;
+using ShopT.Models.Statistics;
 using ShopT.StaticValues;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
 using System.Reactive.Linq;
@@ -20,10 +23,10 @@ namespace ShopT.ViewModels
         #region properties
 
         private string name;
-        public string Name 
+        public string Name
         {
             get => name;
-            set 
+            set
             {
                 SetProperty(ref name, value);
                 OnPropertyChanged("ValidTakeaway");
@@ -33,23 +36,25 @@ namespace ShopT.ViewModels
 
         //nullable
         private string commentary;
-        public string Commentary 
+        public string Commentary
         {
             get => commentary;
             set { SetProperty(ref commentary, value); }
         }
 
         private PaymentMethod paymentMethod;
-        public PaymentMethod PaymentMethod 
+        public PaymentMethod PaymentMethod
         {
             get => paymentMethod;
-            set 
+            set
             {
                 SetProperty(ref paymentMethod, value);
                 OnPropertyChanged("ValidTakeaway");
                 OnPropertyChanged("ValidDelivery");
             }
         }
+
+        public ToggleableModel<PaymentMethod> PaymentMethods { get; } = new ToggleableModel<PaymentMethod>();
 
         private bool usePoints = false;
         public bool UsePoints 
@@ -147,12 +152,13 @@ namespace ShopT.ViewModels
 
         public decimal InitialSum { get; }
 
+        public int Percent { get; }
+
         public decimal Saving { get; }
 
         public decimal TotalSum { get => UsePoints ? InitialSum - Saving : InitialSum; }
 
         private List<OrderDetail> orderDetails;
-        public readonly int brandId;
         private bool delivery;
 
         public Command ChangePaymentMethod { get; }
@@ -161,9 +167,6 @@ namespace ShopT.ViewModels
 
         public OrderViewModel(IEnumerable<OrderDetailLocal> _orderDetails, bool _delivery)
         {
-            InitialSum = _orderDetails.Sum(detail => detail.SumPrice);
-
-            Saving = InitialSum < UsersViewModel.Instance.Points ? UsersViewModel.Instance.Points : InitialSum;
 
             orderDetails = new List<OrderDetail>();
             _orderDetails.ForEach(detail => 
@@ -172,6 +175,16 @@ namespace ShopT.ViewModels
                 orderDetails.Add(detail.OrderDetail);
             });
             delivery = _delivery;
+
+            InitialSum = _orderDetails.Sum(detail => detail.SumPrice);
+
+            Percent = ShopInfoStatic.shopConfiguration.MaxPoints;
+
+            var saved = InitialSum * (Percent / 100m);
+
+            Saving = saved < UsersViewModel.Instance.Points ? UsersViewModel.Instance.Points : saved;
+
+            PaymentMethods.ReplaceRangeWithInject(ShopInfoStatic.shopConfiguration.ActualPaymentMethods);
         }
 
         public async Task<HttpResponseMessage> PostOrder()

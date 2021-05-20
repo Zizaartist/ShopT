@@ -27,8 +27,8 @@ namespace ShopT.ViewModels
             parentCategoryId = _parentCategoryId;
             _shopLocal = new ShopLocal(new Shop{ 
             
-                ShopInfo = ShopInfoStatis.shopInfo,
-                ShopConfiguration = ShopInfoStatis.shopConfiguration
+                ShopInfo = ShopInfoStatic.shopInfo,
+                ShopConfiguration = ShopInfoStatic.shopConfiguration
             });
 
             GetInitialData = NewAsyncCommand(GetInitial);
@@ -56,7 +56,7 @@ namespace ShopT.ViewModels
                     }
                     Categories.AddRange(localizedList);
 
-                    await BlobCache.LocalMachine.InsertObject($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.CATEGORIES_CACHE.key}_{parentCategoryId}", tempList, Caches.CATEGORIES_CACHE.lifeTime);
+                    await BlobCache.LocalMachine.InsertObject($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.CATEGORIES_CACHE.key}_{parentCategoryId}", tempList, Caches.CATEGORIES_CACHE.lifeTime);
                 }
             }
             catch (Exception e)
@@ -72,7 +72,7 @@ namespace ShopT.ViewModels
         public async Task GetCachedData() 
         {
             //Пытаемся вытащить данные из кэша, при неудаче создаем пустую ячейку для предотвращения KeyNotFoundException
-            List<Category> cachedCategories = await new CacheFunctions().tryToGet<List<Category>>($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.CATEGORIES_CACHE.key}_{parentCategoryId}", CacheFunctions.BlobCaches.LocalMachine);
+            List<Category> cachedCategories = await new CacheFunctions().tryToGet<List<Category>>($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.CATEGORIES_CACHE.key}_{parentCategoryId}", CacheFunctions.BlobCaches.LocalMachine);
 
             Categories.Clear();
 

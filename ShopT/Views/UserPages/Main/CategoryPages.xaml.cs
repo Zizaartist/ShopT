@@ -1,5 +1,6 @@
 ﻿using ShopT.Models.LocalModels;
 using ShopT.Models.Statistics;
+using ShopT.StaticValues;
 using ShopT.ViewModels;
 using ShopT.Views.UserPages.ShopsPage;
 using System;
@@ -17,7 +18,7 @@ namespace ShopT.Views.UserPages.Main
         {
             InitializeComponent();
 
-            NameShop.Text = ShopInfoStatis.shopInfo.OrganizationName;
+            NameShop.Text = ShopInfoStatic.shopInfo.OrganizationName;
 
             int? parentCategoryId = null;
             var categoryVM = new CategoryViewModel(parentCategoryId);

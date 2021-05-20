@@ -31,12 +31,12 @@ namespace ShopT.Views.UserPages.ShopsPage
                 ShopList.SelectedItem = null;
 
 
-                ShopInfoStatis.shopInfo = _shopLocal.Shop.ShopInfo;
-                ShopInfoStatis.shopConfiguration = _shopLocal.Shop.ShopConfiguration;
+                ShopInfoStatic.shopInfo = _shopLocal.Shop.ShopInfo;
+                ShopInfoStatic.shopConfiguration = _shopLocal.Shop.ShopConfiguration;
+                ShopInfoStatic.currentShopId = _shopLocal.Shop.ShopId;
 
                 ApiStrings.HOST = _shopLocal.Shop.ClientApiAddress +"/";
                 ApiStrings.HOST_ADMIN = _shopLocal.Shop.AdminApiAddress +"/";
-
 
                 App.Current.MainPage = new StartPage();
             }

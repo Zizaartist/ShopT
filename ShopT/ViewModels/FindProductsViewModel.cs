@@ -111,7 +111,7 @@ namespace ShopT.ViewModels
                 HttpClient client = await createUserClient();
 
                 //Получение всех продуктов по ByName меню
-                HttpResponseMessage response = await client.GetAsync(ApiStrings.HOST + ApiStrings.PRODUCTS_GET_BY_NAME + "/" + ByName);
+                HttpResponseMessage response = await client.GetAsync($"{ApiStrings.HOST}{ApiStrings.PRODUCTS_GET_BY_NAME}{ByName}");
 
                 if (response.IsSuccessStatusCode)
                 {

@@ -81,15 +81,25 @@
         public const string POINT_REGISTERS_CONTROLLER = "api/PointRegisters/";
 
         //Products
+
         /// <summary>
         /// GET: api/Products/ByCategory/{id}/{_page}
         /// </summary>
         public const string PRODUCTS_GET_BY_MENU = "api/Products/ByCategory/";
-
-
+        /// <summary>
+        /// GET: api/Products/Search/{nameCriteria}
+        /// </summary>
         public const string PRODUCTS_GET_BY_NAME = "api/Products/Search/";
 
+        //Hub
 
+        /// <summary>
+        /// GET: api/Shop/ByLocation/{locationId}
+        /// </summary>
         public const string HUB_SHOPS_BY_LOCATION = "api/Shop/ByLocation/";
+        /// <summary>
+        /// GET: api/Shop/Config/{shopId}/{ver}
+        /// </summary>
+        public const string HUB_SHOP_CONFIG_GET = "api/Shop/Config/";
     }
 }

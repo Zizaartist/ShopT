@@ -16,7 +16,7 @@ namespace ShopT.ViewModels
         protected static async Task<HttpClient> createUserClient() 
         {
             HttpClient client = HttpClientSingleton.Instance;
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", await new CacheFunctions().tryToGet<string>($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.TOKEN_CACHE.key}", CacheFunctions.BlobCaches.Secure));
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", await new CacheFunctions().tryToGet<string>($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.TOKEN_CACHE.key}", CacheFunctions.BlobCaches.Secure));
             return client;
         }
 

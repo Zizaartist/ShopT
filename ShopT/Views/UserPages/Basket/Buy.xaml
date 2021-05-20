@@ -56,19 +56,67 @@
                            Text="{Binding Commentary, Mode=TwoWay}"
                            Placeholder="Комментарий к заказу"/>
                     <StackLayout Style="{StaticResource BuyButtonsStack}">
-                        <Button Style="{StaticResource ButtonChoiced}"
+                        <Button Style="{StaticResource ButtonChoice}"
                                 Text="Наличными"
                                 x:Name="Cash"
-                                Clicked="ChangePaymentMethod_Clicked"/>
+                                Command="{Binding Toggle}"
+                                CommandParameter="{x:Null}">
+                            <Button.Triggers>
+                                <!--Если binding отсутствует - отключить-->
+                                <DataTrigger TargetType="Button"
+                                         Binding="{Binding ., TargetNullValue=''}"
+                                         Value="">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <!--Задать включенный стиль если toggled - true-->
+                                <DataTrigger TargetType="Button"
+                                             Binding="{Binding Toggled}"
+                                             Value="True">
+                                    <Setter Property="Style" Value="{StaticResource ButtonChoiced}"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Style="{StaticResource ButtonChoice}"
                                 Text="Картой онлайн"
                                 IsVisible="{StaticResource Equaring}"
                                 x:Name="CardOnline"
-                                Clicked="ChangePaymentMethod_Clicked"/>
+                                Command="{Binding Toggle}"
+                                CommandParameter="{x:Null}">
+                            <Button.Triggers>
+                                <!--Если binding отсутствует - отключить-->
+                                <DataTrigger TargetType="Button"
+                                         Binding="{Binding ., TargetNullValue=''}"
+                                         Value="">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <!--Задать включенный стиль если toggled - true-->
+                                <DataTrigger TargetType="Button"
+                                             Binding="{Binding Toggled}"
+                                             Value="True">
+                                    <Setter Property="Style" Value="{StaticResource ButtonChoiced}"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                         <Button Style="{StaticResource ButtonChoice}"
                                 Text="Картой курьеру"
                                 x:Name="Card"
-                                Clicked="ChangePaymentMethod_Clicked"/>
+                                Command="{Binding Toggle}"
+                                CommandParameter="{x:Null}">
+                            <Button.Triggers>
+                                <!--Если binding отсутствует - отключить-->
+                                <DataTrigger TargetType="Button"
+                                         Binding="{Binding ., TargetNullValue=''}"
+                                         Value="">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <!--Задать включенный стиль если toggled - true-->
+                                <DataTrigger TargetType="Button"
+                                             Binding="{Binding Toggled}"
+                                             Value="True">
+                                        <Setter Property="Style" Value="{StaticResource ButtonChoiced}"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
                     </StackLayout>
                     <Picker Title="Сдача с купюры"
                             x:Name="DeliveryOfMoney"
@@ -88,7 +136,7 @@
                                 x:Name="BonusSwitch"/>
                     </Grid>
                     <Label Style="{StaticResource BuyConditions}"
-                           Text="Максимальный лимит использования бонусов до 30% от суммы заказа"
+                           Text="{Binding Percent, StringFormat='Максимальный лимит использования бонусов до {0}% от суммы заказа'}"
                            IsVisible="{StaticResource Bonus}"/>
                     <Label Style="{StaticResource BuyLabelSummHeader}"/>
                     <StackLayout Spacing="3"
@@ -125,7 +173,7 @@
                     <Label Style="{StaticResource BuySumm}">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{Binding Source={x:Reference PayLabel}, Path=Text}"
+                                <Span Text="{Binding TotalSum}"
                                       x:Name="SumLabel"/>
                                 <Span Text=" руб."/>
                             </FormattedString>

@@ -196,3 +196,6 @@ FakesAssemblies/
 *.local_secrets.*
 
 .vscode/settings.json
+
+.vs/ShopT/v16/.suo
+.vs/ShopT/DesignTimeBuild/.dtbcache.v2

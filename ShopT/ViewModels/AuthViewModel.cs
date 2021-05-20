@@ -136,8 +136,8 @@ namespace ShopT.ViewModels
                     var template = new { access_token = "", username = "" };
                     string result = await response.Content.ReadAsStringAsync();
                     var tokenModel = JsonConvert.DeserializeAnonymousType(result, template);
-                    await BlobCache.Secure.InsertObject($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.TOKEN_CACHE.key}", tokenModel.access_token);
-                    await BlobCache.Secure.InsertObject($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.TOKENTYPE_CACHE.key}", "User");
+                    await BlobCache.Secure.InsertObject($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.TOKEN_CACHE.key}", tokenModel.access_token);
+                    await BlobCache.Secure.InsertObject($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.TOKENTYPE_CACHE.key}", "User");
                 }
                 return response;
             }
@@ -172,8 +172,8 @@ namespace ShopT.ViewModels
                     var template = new { access_token = "", username = "" };
                     string result = await response.Content.ReadAsStringAsync();
                     var tokenModel = JsonConvert.DeserializeAnonymousType(result, template);
-                    await BlobCache.Secure.InsertObject($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.TOKEN_CACHE.key}", tokenModel.access_token);
-                    await BlobCache.Secure.InsertObject($"{ShopInfoStatis.shopInfo.ShopId}_{Caches.TOKENTYPE_CACHE.key}", "Default");
+                    await BlobCache.Secure.InsertObject($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.TOKEN_CACHE.key}", tokenModel.access_token);
+                    await BlobCache.Secure.InsertObject($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.TOKENTYPE_CACHE.key}", "Default");
                 }
             }
             catch (Exception e)
