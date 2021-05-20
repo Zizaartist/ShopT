@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShopT.Models.EnumModels"
              x:Class="ShopT.Views.UserPages.Basket.Buy"
              Shell.BackgroundColor="{StaticResource HeaderPageColor}"
              Shell.ForegroundColor="{StaticResource HeaderBackColor}"
@@ -73,6 +74,7 @@
                                              Binding="{Binding Toggled}"
                                              Value="True">
                                     <Setter Property="Style" Value="{StaticResource ButtonChoiced}"/>
+                                    <Setter TargetName="DeliveryOfMoney" Property="IsVisible" Value="True"/>
                                 </DataTrigger>
                             </Button.Triggers>
                         </Button>
@@ -120,13 +122,11 @@
                     </StackLayout>
                     <Picker Title="Сдача с купюры"
                             x:Name="DeliveryOfMoney"
+                            IsVisible="False"
+                            SelectedItem="{Binding SelectedBanknote, Mode=TwoWay}"
+                            ItemDisplayBinding="{Binding StringBanknote}"
+                            ItemsSource="{x:Static local:ChangeBanknoteDictionaries.AllBanknotes}"
                             Style="{StaticResource SimplePicker}">
-                        <Picker.Items>
-                            <x:String>500 руб.</x:String>
-                            <x:String>1000 руб.</x:String>
-                            <x:String>2000 руб.</x:String>
-                            <x:String>5000 руб.</x:String>
-                        </Picker.Items>
                     </Picker>
                     <Grid IsVisible="{StaticResource Bonus}">
                         <Label Style="{StaticResource BuyLabel}"

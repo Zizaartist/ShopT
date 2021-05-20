@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using static ShopT.Models.EnumModels.ChangeBanknoteDictionaries;
 
 namespace ShopT.ViewModels
 {
@@ -150,6 +151,13 @@ namespace ShopT.ViewModels
             }
         }
 
+        private BanknotePair selectedBanknote;
+        public BanknotePair SelectedBanknote 
+        {
+            get => selectedBanknote;
+            set { SetProperty(ref selectedBanknote, value); }
+        }
+
         public decimal InitialSum { get; }
 
         public int Percent { get; }
@@ -221,7 +229,7 @@ namespace ShopT.ViewModels
             {
                 PointsUsed = UsePoints,
                 Delivery = true,
-                OrderInfo = new OrderInfo() 
+                OrderInfo = new OrderInfo()
                 {
                     Apartment = Apartment,
                     Commentary = Commentary,
@@ -231,6 +239,7 @@ namespace ShopT.ViewModels
                     OrdererName = Name,
                     Street = Street
                 },
+                ChangeBanknote = PaymentMethod == PaymentMethod.cash ? SelectedBanknote?.ChangeBanknote : null,
                 PaymentMethod = PaymentMethod,
                 OrderDetails = orderDetails
             };
@@ -247,6 +256,7 @@ namespace ShopT.ViewModels
                     Commentary = Commentary,
                     OrdererName = Name
                 },
+                ChangeBanknote = PaymentMethod == PaymentMethod.cash ? SelectedBanknote?.ChangeBanknote : null,
                 PaymentMethod = PaymentMethod,
                 OrderDetails = orderDetails
             };

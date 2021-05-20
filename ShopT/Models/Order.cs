@@ -19,7 +19,7 @@ namespace ShopT.Models
         public int UserId { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public OrderStatus OrderStatus { get; set; }
-        public ChangeBanknote ChangeBanknote { get; set; }
+        public ChangeBanknote? ChangeBanknote { get; set; }
         public bool PointsUsed { get; set; }
         public decimal? DeliveryPrice { get; set; }
         public DateTime CreatedDate { get; set; }
