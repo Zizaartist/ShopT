@@ -37,6 +37,7 @@
                                    Text="Этаж"/>
                             <Entry Style="{StaticResource BlankEntry}"
                                    Text="{Binding Floor, Mode=TwoWay}"
+                                   Keyboard="Numeric"
                                    Placeholder="Например 5"/>
                         </StackLayout>
                         <StackLayout Grid.Column="1"
@@ -45,11 +46,13 @@
                                    Text="Подъезд"/>
                             <Entry Style="{StaticResource BlankEntry}"
                                    Text="{Binding Entrance, Mode=TwoWay}"
+                                   Keyboard="Numeric"
                                    Placeholder="Например 5"/>
                             <Label Style="{StaticResource BuyLabel}"
                                    Text="Квартира"/>
                             <Entry Style="{StaticResource BlankEntry}"
                                    Text="{Binding Apartment, Mode=TwoWay}"
+                                   Keyboard="Numeric"
                                    Placeholder="Например 89"/>
                         </StackLayout>
                     </Grid>
