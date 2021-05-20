@@ -196,3 +196,4 @@ FakesAssemblies/
 *.local_secrets.*
 
 .vscode/settings.json
+.vs/ShopT/v16/.suo
