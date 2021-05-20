@@ -19,6 +19,8 @@ namespace ShopT.Models.HubModels
         public string Inn { get; set; }
         public string Ogrnip { get; set; }
         public string LegalAddress { get; set; }
+        public string CoordinatesX { get; set; }
+        public string CoordinatesY { get; set; }
 
         [JsonIgnore]
         public virtual Shop Shop { get; set; }
