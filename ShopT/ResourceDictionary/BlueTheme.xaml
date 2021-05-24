@@ -21,7 +21,7 @@
     <x:String x:Key="OrdersIcon">bluethemeOrdersIcon.png</x:String>
     <x:String x:Key="BasketIcon">bluthemeBasketIcon.png</x:String>
     <x:String x:Key="ProfileIcon">bluethemeProfileIcon.png</x:String>
-    <x:String x:Key="DownIcon">bluthemeDown.png</x:String>
+    <x:String x:Key="DownIcon">bluethemeDown.png</x:String>
     <Style x:Key="ShellHeader" TargetType="Label" BasedOn="{StaticResource ShellHeader}">
         <Setter Property="TextColor" Value="#EFEFEF"/>
     </Style>

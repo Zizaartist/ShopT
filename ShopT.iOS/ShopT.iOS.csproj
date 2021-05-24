@@ -585,4 +585,64 @@
   <ItemGroup>
     <BundleResource Include="Resources\periscope%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ListIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ListIcon%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MapsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MapsIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MapsIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MapsIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MapsIcon%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\simplethemeDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\simplethemeDown%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\simplethemeDown%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\simplethemeDown%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\simplethemeDown%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ListIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ListIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ListIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bluethemeDown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bluethemeDown%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bluethemeDown%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bluethemeDown%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bluethemeDown%404x.png" />
+  </ItemGroup>
 </Project>
