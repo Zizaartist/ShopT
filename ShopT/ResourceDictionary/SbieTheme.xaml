@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="ShopT.ResourceDictionary.SbieTheme"
+                    Source="SimpleTheme.xaml">
+    <Color x:Key="ThemeColor">#46943A</Color>
+    <Color x:Key="HeaderPageColor">#f6f6f6</Color>
+    <Color x:Key="BottomPageColor">#f6f6f6</Color>
+    <Color x:Key="IconCurrentColor">#46943A</Color>
+    <Color x:Key="IconUnselectedColor">#A7A7A7</Color>
+    <Color x:Key="BackgroundPageColor">#ededed</Color>
+    <Color x:Key="HeaderBackColor">#A7A7A7</Color>
+    <!--NAMESOFIMAGES-->
+    <x:String x:Key="BonusIcon">sbiethemeBonusIcon.png</x:String>
+    <x:String x:Key="GrayFind">sbiethemeGrayFind.png</x:String>
+    <x:String x:Key="Discount">sbiethemeDiscount.png</x:String>
+    <x:String x:Key="AddBasket">sbiethemeAddBasket.png</x:String>
+    <x:String x:Key="PlusButton">sbiethemePlusButton.png</x:String>
+    <x:String x:Key="MinusButton">sbiethemeMinusButton.png</x:String>
+    <x:String x:Key="HomeIcon">sbiethemeHomeIcon.png</x:String>
+    <x:String x:Key="OrdersIcon">sbiethemeOrdersIcon.png</x:String>
+    <x:String x:Key="BasketIcon">sbiethemeBasketIcon.png</x:String>
+    <x:String x:Key="ProfileIcon">sbiethemeProfileIcon.png</x:String>
+    <x:String x:Key="DownIcon">sbiethemeDownIcon.png</x:String>
+    <Style x:Key="zHeaderCategoryPagesFrame" TargetType="Frame" BasedOn="{StaticResource zHeaderCategoryPagesFrame}">
+        <Setter Property="CornerRadius" Value="20"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesImage" TargetType="Image" BasedOn="{StaticResource zHeaderCategoryPagesImage}">
+        <Setter Property="Aspect" Value="AspectFill"/>
+        <Setter Property="WidthRequest" Value="50"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="BackgroundColor" Value="{DynamicResource GrayColorLight}"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesLabelName" TargetType="Label" BasedOn="{StaticResource zHeaderCategoryPagesLabelName}">
+        <Setter Property="TextColor" Value="{DynamicResource Black}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesDownImage" TargetType="Image" BasedOn="{StaticResource zHeaderCategoryPagesDownImage}">
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="Margin" Value="5,0,0,0"/>
+    </Style>
+    <Style x:Key="zHeaderCategoryPagesImageButton" TargetType="ImageButton" BasedOn="{StaticResource zHeaderCategoryPagesImageButton}">
+        <Setter Property="Source" Value="{DynamicResource GrayFind}"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="HeightRequest" Value="20"/>
+        <Setter Property="WidthRequest" Value="20"/>
+    </Style>
+    <Style x:Key="zAddBannerFrame" TargetType="Frame" BasedOn="{StaticResource zAddBannerFrame}">
+        <Setter Property="Margin" Value="20"/>
+        <Setter Property="CornerRadius" Value="20"/>
+    </Style>
+    <Style x:Key="zAddBannerImage" TargetType="Image" BasedOn="{StaticResource zAddBannerImage}">
+        <Setter Property="Aspect" Value="AspectFill"/>
+        <Setter Property="HeightRequest" Value="130"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionView" TargetType="CollectionView" BasedOn="{StaticResource zCategoryCollectionView}">
+        <Setter Property="ItemsLayout">
+            <GridItemsLayout Orientation="Vertical"
+                             Span="1"/>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionWrapperGrid" TargetType="Grid" BasedOn="{StaticResource zCategoryCollectionWrapperGrid}">
+        <Setter Property="Padding" Value="20"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionFrame" TargetType="Frame" BasedOn="{StaticResource zCategoryCollectionFrame}">
+        <Setter Property="Padding" Value="20"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource White}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionGrid" TargetType="Grid" BasedOn="{StaticResource zCategoryCollectionGrid}">
+        <Setter Property="RowDefinitions" Value="*"/>
+        <Setter Property="ColumnDefinitions" Value="Auto,*"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionFrameImage" TargetType="Frame" BasedOn="{StaticResource zCategoryCollectionFrameImage}">
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Grid.RowSpan" Value="1"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionImage" TargetType="Image" BasedOn="{StaticResource zCategoryCollectionImage}">
+        <Setter Property="WidthRequest" Value="50"/>
+        <Setter Property="HeightRequest" Value="50"/>
+        <Setter Property="Aspect" Value="AspectFit"/>
+    </Style>
+    <Style x:Key="zCategoryCollectionLabel" TargetType="Label" BasedOn="{StaticResource zCategoryCollectionLabel}">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="TextColor" Value="{DynamicResource Black}"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Grid.Row" Value="0"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+    <Style x:Key="zProductInfoMinus" TargetType="ImageButton" BasedOn="{StaticResource zProductInfoMinus}">
+        <Setter Property="WidthRequest" Value="40"/>
+        <Setter Property="HeightRequest" Value="40"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+    <Style x:Key="zProductInfoCount" TargetType="Label" BasedOn="{StaticResource zProductInfoCount}">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Margin" Value="10,0,10,0"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+    <Style x:Key="zProductInfoPlus" TargetType="ImageButton" BasedOn="{StaticResource zProductInfoMinus}">
+        <Setter Property="Grid.Column" Value="2"/>
+        <Setter Property="Source" Value="{DynamicResource PlusButton}"/>
+    </Style>
+    <Style x:Key="ShellHeader" TargetType="Label" BasedOn="{StaticResource ShellHeader}">
+        <Setter Property="TextColor" Value="{DynamicResource Black}"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="zProductInfoAdd" TargetType="Button" BasedOn="{StaticResource zProductInfoAdd}">
+        <Setter Property="Margin" Value="0,0,0,20"/>
+    </Style>
+</ResourceDictionary>

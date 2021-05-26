@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopT.App">
     <Application.Resources>
-        <ResourceDictionary Source="ResourceDictionary/BlueTheme.xaml"
+        <ResourceDictionary Source="ResourceDictionary/SbieTheme.xaml"
                             x:Name="CurrentTheme">
             <x:Boolean x:Key="Bonus">true</x:Boolean>
             <x:Boolean x:Key="Filter">true</x:Boolean>
