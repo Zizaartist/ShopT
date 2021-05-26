@@ -21919,28 +21919,61 @@ namespace ShopT.Droid
 			public const int ProfileIcon = 2131165372;
 			
 			// aapt resource value: 0x7F0700BD
-			public const int simplethemeDown = 2131165373;
+			public const int sbiethemeAddBasket = 2131165373;
 			
 			// aapt resource value: 0x7F0700BE
-			public const int SyberiaLogo = 2131165374;
+			public const int sbiethemeBasketIcon = 2131165374;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int test_custom_background = 2131165375;
+			public const int sbiethemeBonusIcon = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int themesimpleBonusIcon = 2131165376;
+			public const int sbiethemeDiscount = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int themesimpleDiscount = 2131165377;
+			public const int sbiethemeDownIcon = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int tooltip_frame_dark = 2131165378;
+			public const int sbiethemeGrayFind = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int tooltip_frame_light = 2131165379;
+			public const int sbiethemeHomeIcon = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int visa = 2131165380;
+			public const int sbiethemeMinusButton = 2131165380;
+			
+			// aapt resource value: 0x7F0700C5
+			public const int sbiethemeOrdersIcon = 2131165381;
+			
+			// aapt resource value: 0x7F0700C6
+			public const int sbiethemePlusButton = 2131165382;
+			
+			// aapt resource value: 0x7F0700C7
+			public const int sbiethemeProfileIcon = 2131165383;
+			
+			// aapt resource value: 0x7F0700C8
+			public const int simplethemeDown = 2131165384;
+			
+			// aapt resource value: 0x7F0700C9
+			public const int SyberiaLogo = 2131165385;
+			
+			// aapt resource value: 0x7F0700CA
+			public const int test_custom_background = 2131165386;
+			
+			// aapt resource value: 0x7F0700CB
+			public const int themesimpleBonusIcon = 2131165387;
+			
+			// aapt resource value: 0x7F0700CC
+			public const int themesimpleDiscount = 2131165388;
+			
+			// aapt resource value: 0x7F0700CD
+			public const int tooltip_frame_dark = 2131165389;
+			
+			// aapt resource value: 0x7F0700CE
+			public const int tooltip_frame_light = 2131165390;
+			
+			// aapt resource value: 0x7F0700CF
+			public const int visa = 2131165391;
 			
 			static Drawable()
 			{
@@ -23544,19 +23577,52 @@ namespace ShopT.Droid
 			public const int ProfileIcon = 2131492892;
 			
 			// aapt resource value: 0x7F0C001D
-			public const int simplethemeDown = 2131492893;
+			public const int sbiethemeAddBasket = 2131492893;
 			
 			// aapt resource value: 0x7F0C001E
-			public const int SyberiaLogo = 2131492894;
+			public const int sbiethemeBasketIcon = 2131492894;
 			
 			// aapt resource value: 0x7F0C001F
-			public const int themesimpleBonusIcon = 2131492895;
+			public const int sbiethemeBonusIcon = 2131492895;
 			
 			// aapt resource value: 0x7F0C0020
-			public const int themesimpleDiscount = 2131492896;
+			public const int sbiethemeDiscount = 2131492896;
 			
 			// aapt resource value: 0x7F0C0021
-			public const int visa = 2131492897;
+			public const int sbiethemeDownIcon = 2131492897;
+			
+			// aapt resource value: 0x7F0C0022
+			public const int sbiethemeGrayFind = 2131492898;
+			
+			// aapt resource value: 0x7F0C0023
+			public const int sbiethemeHomeIcon = 2131492899;
+			
+			// aapt resource value: 0x7F0C0024
+			public const int sbiethemeMinusButton = 2131492900;
+			
+			// aapt resource value: 0x7F0C0025
+			public const int sbiethemeOrdersIcon = 2131492901;
+			
+			// aapt resource value: 0x7F0C0026
+			public const int sbiethemePlusButton = 2131492902;
+			
+			// aapt resource value: 0x7F0C0027
+			public const int sbiethemeProfileIcon = 2131492903;
+			
+			// aapt resource value: 0x7F0C0028
+			public const int simplethemeDown = 2131492904;
+			
+			// aapt resource value: 0x7F0C0029
+			public const int SyberiaLogo = 2131492905;
+			
+			// aapt resource value: 0x7F0C002A
+			public const int themesimpleBonusIcon = 2131492906;
+			
+			// aapt resource value: 0x7F0C002B
+			public const int themesimpleDiscount = 2131492907;
+			
+			// aapt resource value: 0x7F0C002C
+			public const int visa = 2131492908;
 			
 			static Mipmap()
 			{

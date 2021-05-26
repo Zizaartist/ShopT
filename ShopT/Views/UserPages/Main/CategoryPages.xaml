@@ -46,7 +46,7 @@
                 </CollectionView.Header>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
+                        <Grid Style="{StaticResource zCategoryCollectionWrapperGrid}">
                             <Frame Style="{StaticResource zCategoryCollectionFrame}">
                                 <Grid Style="{StaticResource zCategoryCollectionGrid}">
                                     <Frame Style="{StaticResource zCategoryCollectionFrameImage}">

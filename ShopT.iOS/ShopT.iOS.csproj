@@ -645,4 +645,169 @@
   <ItemGroup>
     <BundleResource Include="Resources\bluethemeDown%404x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeAddBasket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeAddBasket%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeAddBasket%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeAddBasket%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeAddBasket%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBasketIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBasketIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBasketIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBasketIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBasketIcon%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBonusIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBonusIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBonusIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBonusIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeBonusIcon%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDiscount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDiscount%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDiscount%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDiscount%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDiscount%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDownIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDownIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDownIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDownIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeDownIcon%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeGrayFind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeGrayFind%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeGrayFind%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeGrayFind%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeGrayFind%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeHomeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeHomeIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeHomeIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeHomeIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeHomeIcon%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeMinusButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeMinusButton%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeMinusButton%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeMinusButton%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeMinusButton%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeOrdersIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeOrdersIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeOrdersIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeOrdersIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeOrdersIcon%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemePlusButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemePlusButton%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemePlusButton%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemePlusButton%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemePlusButton%404x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeProfileIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeProfileIcon%401.5x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeProfileIcon%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeProfileIcon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sbiethemeProfileIcon%404x.png" />
+  </ItemGroup>
 </Project>
