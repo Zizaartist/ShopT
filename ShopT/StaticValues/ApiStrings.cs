@@ -5,7 +5,7 @@
         public static string HOST = "";
         public static string HOST_ADMIN = "";
 
-        public const string SHOPT_HUB = "https://shopthub.azurewebsites.net/";
+        public const string HUB = "https://shopthub.azurewebsites.net/";
 
         //Auth
 
@@ -97,5 +97,9 @@
         /// GET: api/Shop/Config/{shopId}/{ver}
         /// </summary>
         public const string HUB_SHOP_CONFIG_GET = "api/Shop/Config/";
+        /// <summary>
+        /// GET: api/Location/All
+        /// </summary>
+        public const string HUB_LOCATIONS_ALL = "api/Location/All/";
     }
 }

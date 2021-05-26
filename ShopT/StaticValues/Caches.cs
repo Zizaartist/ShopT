@@ -16,8 +16,9 @@ namespace ShopT.StaticValues
         /// Кэш для хранения токена
         /// </summary>
         public static readonly Cache TOKEN_CACHE = new Cache("token");
-
-
+        /// <summary>
+        /// Кэш для хранения типа токена
+        /// </summary>
         public static readonly Cache TOKENTYPE_CACHE = new Cache("tokenType");
 
         //UserAccount
@@ -30,9 +31,9 @@ namespace ShopT.StaticValues
         /// </summary>
         public static readonly Cache SHOPCART_CACHE = new Cache("Shopcart");
         /// <summary>
-        /// Кэш для хранения категории брендов текущего авторизованного "администратора"
+        /// Кэш последней выбранной локации
         /// </summary>
-        public static readonly Cache CURRENT_ADMIN_CATEGORY = new Cache("Category");
+        public static readonly Cache LOCATION_SELECTED = new Cache("SelectedLocation");
 
         //LocalMachine
         /// <summary>
@@ -47,10 +48,6 @@ namespace ShopT.StaticValues
         /// Кэш для хранения методов оплаты
         /// </summary>
         public static readonly Cache PAYMENTMETHODS_CACHE = new Cache("PaymentMethods");
-        /// <summary>
-        /// Кэш для хранения банкнот различных номиналов
-        /// </summary>
-        public static readonly Cache BANKNOTES_CACHE = new Cache("Banknotes");
         /// <summary>
         /// Кэш для хранения брендов внутри категории
         /// </summary>
@@ -67,6 +64,10 @@ namespace ShopT.StaticValues
         /// Кэш для хранения продуктов внутри меню
         /// </summary>
         public static readonly Cache PRODUCTS_CACHE = new Cache("Products", TimeSpan.FromHours(1));
+        /// <summary>
+        /// Кэш для хранения городов
+        /// </summary>
+        public static readonly Cache LOCATIONS_CACHE = new Cache("Locations", TimeSpan.FromDays(1));
         /// <summary>
         /// Кэш для хранения изображений
         /// </summary>

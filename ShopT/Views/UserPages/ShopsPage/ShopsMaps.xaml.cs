@@ -25,18 +25,9 @@ namespace ShopT.Views.UserPages.ShopsPage
 
         async void MapsInitAsync()
         {
-            CustomMap customMap = new CustomMap
-            {
-                MapType = MapType.Street,
-                IsShowingUser = true,
-            };
-
-            Content = customMap;
-
-            List<ShopLocal> shopLocals = StaticShopLocals.shopLocals;
             List<CustomPin> CustomPinList = new List<CustomPin>();
 
-            foreach (var item in shopLocals)
+            foreach (var item in LocationViewModel.Instance.shopVM.Shops)
             {
                 double x = double.Parse(item.Shop.ShopInfo.CoordinatesX, CultureInfo.InvariantCulture);
                 double y = double.Parse(item.Shop.ShopInfo.CoordinatesY, CultureInfo.InvariantCulture);
@@ -60,9 +51,7 @@ namespace ShopT.Views.UserPages.ShopsPage
             var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10000), null, true);
 
             customMap.MapClicked += OnMapClicked;
-            //customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMeters(200)));
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(62.0332725, 129.7309803), Distance.FromKilometers(1)));
-
         }
 
         void OnMapClicked(object sender, MapClickedEventArgs e)

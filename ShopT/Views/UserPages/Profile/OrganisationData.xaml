@@ -101,7 +101,7 @@
                         <FormattedString>
                             <Span Text="Фактический адрес: "
                                   TextColor="{StaticResource GrayColor}"/>
-                            <Span Text="{Binding Adress}"/>
+                            <Span Text="{Binding ActualAddress}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -110,7 +110,7 @@
                         <FormattedString>
                             <Span Text="Электронная почта: "
                                   TextColor="{StaticResource GrayColor}"/>
-                            <Span Text="{Binding EMail}"/>
+                            <Span Text="{Binding Email}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -119,7 +119,7 @@
                         <FormattedString>
                             <Span Text="Телефоны: "
                                   TextColor="{StaticResource GrayColor}"/>
-                            <Span Text="{Binding Number}"/>
+                            <Span Text="{Binding Phones}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -127,13 +127,13 @@
                        Text="Реквизиты:"
                        FontSize="16"/>
                 <Label Style="{StaticResource Font_14}"
-                       Text="{Binding Name}"/>
+                       Text="{Binding OrganizationName}"/>
                 <Label Style="{StaticResource Font_14}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="ИНН: "
                                   TextColor="{StaticResource GrayColor}"/>
-                            <Span Text="{Binding INN}"/>
+                            <Span Text="{Binding Inn}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -142,7 +142,7 @@
                         <FormattedString>
                             <Span Text="ОГРНИП: "
                               TextColor="{StaticResource GrayColor}"/>
-                            <Span Text="{Binding OGRNIP}"/>
+                            <Span Text="{Binding Ogrnip}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -151,7 +151,7 @@
                         <FormattedString>
                             <Span Text="Юридический адрес: "
                                   TextColor="{StaticResource GrayColor}"/>
-                            <Span Text="{Binding AdressLegal}"/>
+                            <Span Text="{Binding LegalAddress}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

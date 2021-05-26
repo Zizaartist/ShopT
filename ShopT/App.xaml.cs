@@ -21,9 +21,6 @@ namespace ShopT
             BlobCache.ApplicationName = "ShopT";
             BlobCache.EnsureInitialized();
 
-            List<ShopLocal> _list = new List<ShopLocal>();
-            StaticShopLocals.shopLocals = _list;
-
             MainPage = new ShopsShell();
         }
         void InitializationPublicStyles()

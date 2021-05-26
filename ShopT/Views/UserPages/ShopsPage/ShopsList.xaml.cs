@@ -20,7 +20,9 @@ namespace ShopT.Views.UserPages.ShopsPage
         public ShopsList()
         {
             InitializeComponent();
-            ShopList.BindingContext = new ShopViewModel();
+
+            BindingContext = LocationViewModel.Instance;
+            Task.Run(() => LocationViewModel.Instance.GetCachedData());
         }
 
         private void ShopList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -40,6 +42,14 @@ namespace ShopT.Views.UserPages.ShopsPage
 
                 App.Current.MainPage = new StartPage();
             }
+        }
+
+        private async void LocationPickerButton_Clicked(object sender, EventArgs e)
+        {
+            var selection = await DisplayActionSheet("Выберите новую локацию", null, null, LocationViewModel.Instance.Locations.Select(loc => loc.LocationName).ToArray());
+            if (selection == null) return;
+
+            LocationViewModel.Instance.SelectedLocation = LocationViewModel.Instance.Locations.FirstOrDefault(loc => loc.LocationName == selection);
         }
     }
 }

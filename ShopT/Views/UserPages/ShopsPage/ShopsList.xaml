@@ -8,26 +8,35 @@
              Shell.TitleColor="{StaticResource HeaderBackColor}"
              BackgroundColor="{StaticResource BackgroundPageColor}">
     <ContentPage.Content>
-        <CollectionView Style="{StaticResource zShopListCollectionView}"
-                        ItemsSource="{Binding Shops}"
+        <RefreshView x:Name="Refreshable"
+                     IsRefreshing="{Binding shopVM.IsWorking}"
+                     Command="{Binding shopVM.GetInitialData}">
+            <CollectionView Style="{StaticResource zShopListCollectionView}"
+                        ItemsSource="{Binding shopVM.Shops}"
                         x:Name="ShopList"
                         SelectionChanged="ShopList_SelectionChanged">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Style="{StaticResource zShopListWrapperStack}">
-                        <Frame Style="{StaticResource zShopListFrame}">
-                            <Grid Style="{StaticResource zShopListGrid}">
-                                <Frame Style="{StaticResource zShopListFrameImage}">
-                                    <Image Style="{StaticResource zShopListImage}"
+                <CollectionView.Header>
+                    <Button Text="{Binding CurrentLocation.LocationName}"
+                            x:Name="LocationPickerButton"
+                            Clicked="LocationPickerButton_Clicked"/>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Style="{StaticResource zShopListWrapperStack}">
+                            <Frame Style="{StaticResource zShopListFrame}">
+                                <Grid Style="{StaticResource zShopListGrid}">
+                                    <Frame Style="{StaticResource zShopListFrameImage}">
+                                        <Image Style="{StaticResource zShopListImage}"
                                            Source="{Binding Image}"/>
-                                </Frame>
-                                <Label Style="{StaticResource zShopListLabel}"
+                                    </Frame>
+                                    <Label Style="{StaticResource zShopListLabel}"
                                        Text="{Binding Shop.ShopInfo.OrganizationName}"/>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

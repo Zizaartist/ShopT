@@ -15,7 +15,7 @@ namespace ShopT.ViewModels
         {
             HttpClient client = HttpClientSingleton.Instance;
 
-            var response = await client.GetAsync($"{ApiStrings.SHOPT_HUB}{ApiStrings.HUB_SHOP_CONFIG_GET}{ShopInfoStatic.currentShopId}/{ShopInfoStatic.shopConfiguration.Version}");
+            var response = await client.GetAsync($"{ApiStrings.HUB}{ApiStrings.HUB_SHOP_CONFIG_GET}{ShopInfoStatic.currentShopId}/{ShopInfoStatic.shopConfiguration.Version}");
             if (response.IsSuccessStatusCode)
             {
                 string result = await response.Content.ReadAsStringAsync();

@@ -98,7 +98,7 @@ namespace ShopT.iOS
             {
                 customPinView.Frame = new CGRect(0, 0, 200, 200);
                 var image = new UIImageView(new CGRect(0, 0, 200, 200));
-                image.Image = UIImage.LoadFromData(NSData.FromUrl(new NSUrl(ApiStrings.SHOPT_HUB + ApiStrings.IMAGES_FOLDER + customView.Images)));
+                image.Image = UIImage.LoadFromData(NSData.FromUrl(new NSUrl(ApiStrings.HUB + ApiStrings.IMAGES_FOLDER + customView.Images)));
                 customPinView.AddSubview(image);
                 customPinView.Center = new CGPoint(0, -(e.View.Frame.Height + 140));
                 e.View.AddSubview(customPinView);

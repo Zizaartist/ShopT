@@ -28,52 +28,57 @@
         </Grid>
     </Shell.TitleView>
     <ContentPage.Content>
-        <CollectionView Style="{StaticResource zProductListCollectionView}"
+        <RefreshView x:Name="Refreshable"
+                     IsRefreshing="{Binding IsWorking}"
+                     Command="{Binding GetInitialData}">
+            <CollectionView Style="{StaticResource zProductListCollectionView}"
                         ItemsSource="{Binding ProductLists}"
                         x:Name="ItemsCollection"
+                        RemainingItemsThreshold="{Binding ItemTreshold}"
+                        RemainingItemsThresholdReachedCommand="{Binding GetMoreData}"
                         SelectionChanged="ItemsCollection_SelectionChanged">
-         
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Frame Style="{StaticResource zProductListFrame}">
-                            <StackLayout Style="{StaticResource zProductListWrapperStack}">
-                                <Grid>
-                                    <Frame Style="{StaticResource zProductListFrameImage}">
-                                        <Image Style="{StaticResource zProductListImage}"
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Frame Style="{StaticResource zProductListFrame}">
+                                <StackLayout Style="{StaticResource zProductListWrapperStack}">
+                                    <Grid>
+                                        <Frame Style="{StaticResource zProductListFrameImage}">
+                                            <Image Style="{StaticResource zProductListImage}"
                                                Source="{Binding Image}"/>
-                                    </Frame>
-                                    <Image Style="{StaticResource zProductListSale}"
+                                        </Frame>
+                                        <Image Style="{StaticResource zProductListSale}"
                                            IsVisible="{Binding BoolDiscount}"/>
-                                </Grid>
-                                <Grid ColumnDefinitions="*">
-                                    <StackLayout Style="{StaticResource zProductListStackLayoutPrice}">
-                                        <Label Style="{StaticResource zProductListPriceStrikethrough}"
+                                    </Grid>
+                                    <Grid ColumnDefinitions="*">
+                                        <StackLayout Style="{StaticResource zProductListStackLayoutPrice}">
+                                            <Label Style="{StaticResource zProductListPriceStrikethrough}"
                                                Text="{Binding OldPrice}"
                                                IsVisible="{Binding BoolDiscount}"/>
-                                        <Label Style="{StaticResource zProductListPrice}">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding Price}"/>
-                                                    <Span Text=" руб."/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-                                    <Label Style="{StaticResource zProductListName}"
+                                            <Label Style="{StaticResource zProductListPrice}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding Price}"/>
+                                                        <Span Text=" руб."/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                        <Label Style="{StaticResource zProductListName}"
                                            Text="{Binding Product.ProductName}"/>
-                                    <ImageButton Style="{StaticResource zProductListAddBasket}"
+                                        <ImageButton Style="{StaticResource zProductListAddBasket}"
                                                  Clicked="ImageButton_Clicked_1"
                                                  IsVisible="{Binding NotSoldOut}"
                                                  Command="{Binding AddToBasket}"
                                                  CommandParameter="{Binding .}"
                                                  />
-                                </Grid>
-                            </StackLayout>
-                        </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

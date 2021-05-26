@@ -27,25 +27,30 @@ namespace ShopT.ViewModels
                 OnPropertyChanged();
             }
         }
+
         public ShopViewModel()
         {
             Shops = new ObservableRangeCollection<ShopLocal>();
 
-            GetInitial();
+            GetInitialData = NewAsyncCommand(GetInitial);
         }
 
-        public async void GetInitial()
+        public async Task GetInitial()
         {
             try
             {
+                var lastSelectedId = await new CacheFunctions().tryToGet<int>($"{Caches.LOCATION_SELECTED.key}", CacheFunctions.BlobCaches.UserAccount);
+
                 HttpClient client = new HttpClient();
 
-                HttpResponseMessage response = await client.GetAsync($"{ApiStrings.SHOPT_HUB}{ApiStrings.HUB_SHOPS_BY_LOCATION}1");
+                HttpResponseMessage response = await client.GetAsync($"{ApiStrings.HUB}{ApiStrings.HUB_SHOPS_BY_LOCATION}{lastSelectedId}");
+
+                Shops.Clear();
+
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
                     List<Shop> tempList = JsonConvert.DeserializeObject<List<Shop>>(result);
-                    Shops.Clear();
 
                     var localizedList = new List<ShopLocal>();
                     foreach (var item in tempList)
@@ -53,24 +58,17 @@ namespace ShopT.ViewModels
                         localizedList.Add(new ShopLocal(item));
                     }
 
-                    StaticShopLocals.shopLocals = localizedList;
                     Shops.AddRange(localizedList);
-
                 }
-            }
-            catch (NoConnectionException)
-            {
-                throw;
             }
             catch (Exception e)
             {
-                throw CheckIfConnectionException(e);
+                //
             }
             finally
             {
                 IsWorking = false;
             }
         }
-
     }
 }

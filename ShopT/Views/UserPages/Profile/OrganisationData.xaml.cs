@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using ShopT.StaticValues;
+using System.Linq;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,8 @@ namespace ShopT.Views.UserPages.Profile
         public OrganisationData()
         {
             InitializeComponent();
-            //WrapperStack.BindingContext = new OrganisationDataViewModel().OrganisationDatas.Last();
+
+            BindingContext = ShopInfoStatic.shopInfo;
         }
     }
 }

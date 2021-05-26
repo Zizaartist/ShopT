@@ -139,14 +139,13 @@ namespace ShopT.Droid
                 byte[] imageBytes;
                 try
                 {
-                    imageBytes = webClient.DownloadData(ApiStrings.SHOPT_HUB + ApiStrings.IMAGES_FOLDER + url);
+                    imageBytes = webClient.DownloadData(ApiStrings.HUB + ApiStrings.IMAGES_FOLDER + url);
                 }
                 catch (Exception)
                 {
-
                     imageBytes = null;
                 }
-                //byte[] imageBytes = webClient.DownloadData(ApiStrings.SHOPT_HUB + ApiStrings.IMAGES_FOLDER + url);
+
                 if (imageBytes != null && imageBytes.Length > 0)
                 {
                     imageBitmap = BitmapFactory.DecodeByteArray(imageBytes, 0, imageBytes.Length);

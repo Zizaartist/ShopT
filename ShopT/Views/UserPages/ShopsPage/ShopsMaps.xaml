@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ShopT.Models.Maps;assembly=ShopT"
              x:Class="ShopT.Views.UserPages.ShopsPage.ShopsMaps"
              Title="Выбор магазина"
              Shell.BackgroundColor="{StaticResource HeaderPageColor}"
@@ -8,8 +9,7 @@
              Shell.TitleColor="{StaticResource HeaderBackColor}"
              BackgroundColor="{StaticResource BackgroundPageColor}">
     <ContentPage.Content>
-        <StackLayout>
-            
-        </StackLayout>
+        <local:CustomMap x:Name="customMap"
+                   MapType="Street" />
     </ContentPage.Content>
 </ContentPage>

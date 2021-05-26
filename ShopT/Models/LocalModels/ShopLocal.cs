@@ -16,14 +16,14 @@ namespace ShopT.Models.LocalModels
 
             Image = _shop.ShopInfo.Avatar != null ? new UriImageSource
             {
-                Uri = new Uri(ApiStrings.SHOPT_HUB + ApiStrings.IMAGES_FOLDER + _shop.ShopInfo.Avatar),
+                Uri = new Uri(ApiStrings.HUB + ApiStrings.IMAGES_FOLDER + _shop.ShopInfo.Avatar),
                 CachingEnabled = true,
                 CacheValidity = Caches.IMAGE_CACHE.lifeTime
             } : null;
 
             BannerImage = _shop.ShopInfo.Banner != null ? new UriImageSource
             {
-                Uri = new Uri(ApiStrings.SHOPT_HUB + ApiStrings.IMAGES_FOLDER + _shop.ShopInfo.Banner),
+                Uri = new Uri(ApiStrings.HUB + ApiStrings.IMAGES_FOLDER + _shop.ShopInfo.Banner),
                 CachingEnabled = true,
                 CacheValidity = Caches.IMAGE_CACHE.lifeTime
             } : null;
