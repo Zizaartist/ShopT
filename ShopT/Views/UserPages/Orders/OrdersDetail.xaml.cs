@@ -1,5 +1,7 @@
 ﻿
 using ShopT.Models.LocalModels;
+using ShopT.ViewModels;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,8 +13,12 @@ namespace ShopT.Views.UserPages.Orders
         public OrdersDetail(OrderLocal order)
         {
             InitializeComponent();
-            //ItemsCollection.BindingContext = new ItemViewModel();
-            //SpanSum.Text = order.Order.Sum.ToString();
+
+            var detailsVM = new OrderDetailsViewModel();
+            BindingContext = detailsVM;
+            Task.Run(() => detailsVM.GetRemoteData(order.Order.OrderId));
+
+            SpanSum.Text = order.Order.Sum.ToString();
         }
 
     }

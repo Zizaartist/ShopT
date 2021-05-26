@@ -12,47 +12,47 @@
         </Grid>
     </Shell.TitleView>
     <ContentPage.Content>
-        <CollectionView Style="{StaticResource zOrdersCollection}"
+        <RefreshView x:Name="Refreshable"
+                     IsRefreshing="{Binding IsWorking}"
+                     Command="{Binding GetInitialData}">
+            <CollectionView Style="{StaticResource zOrdersCollection}"
                         x:Name="OrderCollection"
                         SelectionChanged="OrderCollection_SelectionChanged"
+                        RemainingItemsThresholdReachedCommand="{Binding GetMoreData}"
+                        RemainingItemsThreshold="{Binding ItemTreshold}"
                         ItemsSource="{Binding Orders}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Style="{StaticResource zOrdersCollectionWrapperStack}">
-                        <Frame Style="{StaticResource zOrdersCollectionWrapperFrame}">
-                            <Grid Style="{StaticResource zOrdersCollectionGrid}">
-                                <Frame Style="{StaticResource zOrdersCollectionImageFrame}">
-                                    <Image Style="{StaticResource zOrdersCollectionImage}"
-                                           Source="{Binding Image}"/>
-                                </Frame>
-                                <StackLayout Style="{StaticResource zOrdersCollectionStackText}">
-                                    <Label Style="{StaticResource zOrdersCollectionNameOrder}"
-                                           Text="{Binding Name}"/>
-                                    <Label Style="{StaticResource zOrdersCollectionDate}"
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Style="{StaticResource zOrdersCollectionWrapperStack}">
+                            <Frame Style="{StaticResource zOrdersCollectionWrapperFrame}">
+                                <Grid Style="{StaticResource zOrdersCollectionGrid}">
+                                    <StackLayout Style="{StaticResource zOrdersCollectionStackText}">
+                                        <Label Style="{StaticResource zOrdersCollectionDate}"
                                            Text="{Binding Order.CreatedDate, StringFormat='{0:dd MMMM yyyy [HH:mm]}'}"/>
-                                    <Label Style="{StaticResource zOrdersCollectionAdress}">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="Адрес доставки: "/>
-                                                <Span Text="{Binding Address}"
+                                        <Label Style="{StaticResource zOrdersCollectionAdress}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Адрес доставки: "/>
+                                                    <Span Text="{Binding Address}"
                                                       TextColor="{StaticResource Black}"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Label Style="{StaticResource zOrdersCollectionPrice}">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding Order.Sum}"/>
-                                                <Span Text=" руб."/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                </StackLayout>
-                            </Grid>
-                        </Frame>
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Style="{StaticResource zOrdersCollectionPrice}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Order.Sum}"/>
+                                                    <Span Text=" руб."/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

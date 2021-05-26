@@ -14,6 +14,8 @@ namespace ShopT.Models.HubModels
 
         public int LocationId { get; set; }
         public string LocationName { get; set; }
+        public string CoordinatesX { get; set; }
+        public string CoordinatesY { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<Shop> Shops { get; set; }

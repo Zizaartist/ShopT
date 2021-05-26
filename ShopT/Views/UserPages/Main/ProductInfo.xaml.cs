@@ -33,30 +33,7 @@ namespace ShopT.Views.UserPages.Main
 
         private async void AddBasket_Clicked(object sender, EventArgs e)
         {
-            bool result = await DisplayAlert("Внимание", "Вы действительно хотите добавить товар в корзину?", "Да", "Нет");
-            if (result)
-            {
-                await DisplayAlert("Внимание", "Товар добавлен в корзину", "Понятно");
-            }
+            await DisplayAlert(null, "Товар добавлен в корзину", "Понятно");
         }
-
-        //private void Minus_Clicked(object sender, EventArgs e)
-        //{
-        //    int count = Convert.ToInt32(Count.Text);
-        //    if(count != 1)
-        //    {
-        //        count -= 1;
-        //        Count.Text = count.ToString();
-        //        Price.Text = (Convert.ToInt32(_item.Price) * count).ToString();
-        //    }
-        //}
-
-        //private void Plus_Clicked(object sender, EventArgs e)
-        //{
-        //    int count = Convert.ToInt32(Count.Text);
-        //    count += 1;
-        //    Count.Text = count.ToString();
-        //    Price.Text = (Convert.ToInt32(_item.Price) * count).ToString();
-        //}
     }
 }

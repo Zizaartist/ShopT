@@ -13,7 +13,7 @@
     </Shell.TitleView>
     <ContentPage.Content>
         <CollectionView Style="{StaticResource zProductListCollectionView}"
-                        ItemsSource="{Binding Items}"
+                        ItemsSource="{Binding Details}"
                         x:Name="ItemsCollection"
                         SelectionMode="None">
             <CollectionView.Header>
@@ -39,7 +39,7 @@
                                 <Grid>
                                     <Frame Style="{StaticResource zProductListFrameImage}">
                                         <Image Style="{StaticResource zProductListImage}"
-                                               Source="{Binding Image}"/>
+                                               Source="{Binding Logo}"/>
                                     </Frame>
                                     <Image Style="{StaticResource zProductListSale}"
                                            IsVisible="{Binding Discount}"/>
@@ -53,14 +53,15 @@
                                             <Label.FormattedText>
                                                 <FormattedString>
                                                     <Span Text="{Binding Price}"/>
-                                                    <Span Text=" руб."/>
+                                                    <Span Text=" руб. X "/>
+                                                    <Span Text="{Binding OrderDetail.Count}"/>
+                                                    <Span Text=" шт."/>
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
                                     </StackLayout>
                                     <Label Style="{StaticResource zProductListName}"
-                                           Text="{Binding Name}"/>
-                                    <ImageButton Style="{StaticResource zProductListAddBasket}"/>
+                                           Text="{Binding OrderDetail.Product.ProductName}"/>
                                 </Grid>
                             </StackLayout>
                         </Frame>

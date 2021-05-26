@@ -12,7 +12,7 @@ namespace ShopT.Models.LocalModels
 
             Image = Category.Image != null ? new UriImageSource
             {
-                Uri = new Uri(ApiStrings.HOST_ADMIN + ApiStrings.IMAGES_FOLDER + Category.Image),
+                Uri = new Uri($"{ApiStrings.HOST_ADMIN}{ApiStrings.IMAGES_FOLDER}{Category.Image}"),
                 CachingEnabled = true,
                 CacheValidity = Caches.IMAGE_CACHE.lifeTime
             } : null;

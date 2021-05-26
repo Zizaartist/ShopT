@@ -13,9 +13,11 @@
           "Newtonsoft.Json": "13.0.1",
           "Refractored.MvvmHelpers": "1.6.2",
           "System.ComponentModel.Annotations": "5.0.0",
+          "Xam.Plugin.Geolocator": "4.5.0.6",
           "Xamarin.CommunityToolkit": "1.1.0",
           "Xamarin.Essentials": "1.6.1",
           "Xamarin.Forms": "5.0.0.2012",
+          "Xamarin.Forms.Maps": "5.0.0.2012",
           "Xamarin.Forms.PancakeView": "2.3.0.759",
           "akavache": "7.2.1"
         },
@@ -579,6 +581,14 @@
         }
       },
       "System.ValueTuple/4.5.0": {},
+      "Xam.Plugin.Geolocator/4.5.0.6": {
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Geolocator.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Xamarin.CommunityToolkit/1.1.0": {
         "dependencies": {
           "System.Reflection.Emit.Lightweight": "4.7.0",
@@ -614,6 +624,17 @@
             "fileVersion": "5.0.0.671"
           },
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "5.0.0.671"
+          }
+        }
+      },
+      "Xamarin.Forms.Maps/5.0.0.2012": {
+        "dependencies": {
+          "Xamarin.Forms": "5.0.0.2012"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Xamarin.Forms.Maps.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "5.0.0.671"
           }
@@ -1024,6 +1045,13 @@
       "path": "system.valuetuple/4.5.0",
       "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
+    "Xam.Plugin.Geolocator/4.5.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ro7peBDxsDXPc7J7yLx0ekAcXIfVTAXj/rXiBKiTgZ4Lm7KZJIU8PXOCcI4JztzT3MQrL8Rmka48il/ix0pwoA==",
+      "path": "xam.plugin.geolocator/4.5.0.6",
+      "hashPath": "xam.plugin.geolocator.4.5.0.6.nupkg.sha512"
+    },
     "Xamarin.CommunityToolkit/1.1.0": {
       "type": "package",
       "serviceable": true,
@@ -1044,6 +1072,13 @@
       "sha512": "sha512-Rqc6xvWR/sf+Db5+qRCFmuYTWVp04QWRfwPto2/JHbShSy4Ed53Q2jpoFzsoloXkJA6saD236PlaWAhT6vI4gw==",
       "path": "xamarin.forms/5.0.0.2012",
       "hashPath": "xamarin.forms.5.0.0.2012.nupkg.sha512"
+    },
+    "Xamarin.Forms.Maps/5.0.0.2012": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zq1mv6sybHzQYWcOYOuLDV1LWQiioGN6kmleau7frhkVLf68FSXd/GIq4uA92TIOYMW9MxmZKOSBW8VVPis5pQ==",
+      "path": "xamarin.forms.maps/5.0.0.2012",
+      "hashPath": "xamarin.forms.maps.5.0.0.2012.nupkg.sha512"
     },
     "Xamarin.Forms.PancakeView/2.3.0.759": {
       "type": "package",

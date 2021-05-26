@@ -26,7 +26,7 @@ namespace ShopT.Views.UserPages.Basket
         {
             CacheFunctions cache = new CacheFunctions();
 
-            string qew = await cache.tryToGet<string>($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.TOKENTYPE_CACHE.key}", CacheFunctions.BlobCaches.Secure);
+            string qew = await cache.tryToGet<string>($"{ShopInfoStatic.currentShopId}_{Caches.TOKENTYPE_CACHE.key}", CacheFunctions.BlobCaches.Secure);
             if (qew == "Default" || qew == default)
             {
                 await Navigation.PushAsync(new EnterNumber());

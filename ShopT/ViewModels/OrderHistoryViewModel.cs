@@ -56,8 +56,7 @@ namespace ShopT.ViewModels
                 HttpClient client = await createUserClient();
 
                 //Отправляем список хэштегов, даже будучи пустым
-                HttpResponseMessage response = await client.GetAsync(ApiStrings.HOST +
-                                                                        ApiStrings.ORDERS_GET_ORDERS + NextPage);
+                HttpResponseMessage response = await client.GetAsync(ApiStrings.HOST + ApiStrings.ORDERS_GET_ORDERS + NextPage);
                 if (response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
@@ -80,7 +79,7 @@ namespace ShopT.ViewModels
                     }
                     Orders.AddRange(localizedList);
 
-                    await BlobCache.LocalMachine.InsertObject(Caches.ORDERS_CACHE.key, (NextPage, Orders.Select(e => e?.Order)), Caches.ORDERS_CACHE.lifeTime);
+                    await BlobCache.LocalMachine.InsertObject($"{ShopInfoStatic.currentShopId}_{Caches.ORDERS_CACHE.key}", (NextPage, Orders.Select(e => e?.Order)), Caches.ORDERS_CACHE.lifeTime);
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
@@ -104,7 +103,7 @@ namespace ShopT.ViewModels
         public async Task GetCachedData()
         {
             //Пытаемся вытащить данные из кэша, при неудаче создаем пустую ячейку для предотвращения KeyNotFoundException
-            (int, List<Order>) cachedOrders = await new CacheFunctions().tryToGet<(int, List<Order>)>(Caches.ORDERS_CACHE.key, CacheFunctions.BlobCaches.LocalMachine);
+            (int, List<Order>) cachedOrders = await new CacheFunctions().tryToGet<(int, List<Order>)>($"{ShopInfoStatic.currentShopId}_{Caches.ORDERS_CACHE.key}", CacheFunctions.BlobCaches.LocalMachine);
 
             Orders.Clear();
 

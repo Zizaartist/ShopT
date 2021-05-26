@@ -41,6 +41,7 @@
                 <Grid Style="{StaticResource zProductInfoGrid}">
                     <ImageButton Style="{StaticResource zProductInfoMinus}"
                                  x:Name="Minus"
+                                 IsEnabled="{Binding NotSoldOut}"
                                  Command="{Binding SubCount}"
                                  />
                     <Label Style="{StaticResource zProductInfoCount}"
@@ -48,6 +49,7 @@
                            x:Name="Count"/>
                     <ImageButton Style="{StaticResource zProductInfoPlus}"
                                  x:Name="Plus"
+                                 IsEnabled="{Binding NotSoldOut}"
                                  Command="{Binding AddCount}"
                                  />
                 </Grid>
@@ -62,6 +64,7 @@
                        Text="{Binding Product.Description}"/>
                 <Button Style="{StaticResource zProductInfoAdd}"
                         x:Name="AddBasket"
+                        IsEnabled="{Binding NotSoldOut}"
                         Command="{Binding AddToBasket}"
                         CommandParameter="{Binding .}"
                         Clicked="AddBasket_Clicked"/>

@@ -34,6 +34,18 @@ namespace ShopT.Models.LocalModels
             });
         }
 
+        public OrderDetailLocal(OrderDetail _orderDetail)
+        {
+            OrderDetail = _orderDetail;
+
+            Logo = OrderDetail.Product.Image != null ? new UriImageSource
+            {
+                Uri = new Uri($"{ApiStrings.HOST_ADMIN}{ApiStrings.IMAGES_FOLDER}{OrderDetail.Product.Image}"),
+                CachingEnabled = true,
+                CacheValidity = Caches.IMAGE_CACHE.lifeTime
+            } : null;
+        }
+
         public void InjectSumCommand(Command _updateSum) => updateSum = _updateSum;
 
         private Command saveChanges;
@@ -66,5 +78,9 @@ namespace ShopT.Models.LocalModels
                 }
             }
         }
+
+        public bool Discount { get => OrderDetail.Discount != null; }
+        public decimal OldPrice { get => OrderDetail.Price; }
+        public decimal Price { get => OrderDetail.Discount != null ? OrderDetail.Price - (OrderDetail.Price / 100 * OrderDetail.Discount.Value) : OrderDetail.Price; }
     }
 }

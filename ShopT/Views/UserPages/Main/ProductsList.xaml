@@ -64,6 +64,7 @@
                                            Text="{Binding Product.ProductName}"/>
                                     <ImageButton Style="{StaticResource zProductListAddBasket}"
                                                  Clicked="ImageButton_Clicked_1"
+                                                 IsVisible="{Binding NotSoldOut}"
                                                  Command="{Binding AddToBasket}"
                                                  CommandParameter="{Binding .}"
                                                  />

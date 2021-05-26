@@ -126,7 +126,7 @@ namespace ShopT.ViewModels
                         ProductLists.Add(new ProductLocal(item, UpdateBindings, AddToSelected, RemoveFromSelected, AddToBasket));
                     }
 
-                    await BlobCache.LocalMachine.InsertObject($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.PRODUCTS_CACHE.key}" + "_" + menu.CategoryId.ToString(), (NextPage, ProductLists.Select(e => e.Product)), Caches.PRODUCTS_CACHE.lifeTime);
+                    await BlobCache.LocalMachine.InsertObject($"{ShopInfoStatic.currentShopId}_{Caches.PRODUCTS_CACHE.key}_{menu.CategoryId}", (NextPage, ProductLists.Select(e => e.Product)), Caches.PRODUCTS_CACHE.lifeTime);
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
@@ -150,7 +150,7 @@ namespace ShopT.ViewModels
         public async Task GetCachedData()
         {
             //Пытаемся вытащить данные из кэша, при неудаче создаем пустую ячейку для предотвращения KeyNotFoundException
-            (int, List<Product>) cachedProducts = await new CacheFunctions().tryToGet<(int, List<Product>)>($"{ShopInfoStatic.shopInfo.ShopId}_{Caches.PRODUCTS_CACHE.key}" + "_" + menu.CategoryId.ToString(), CacheFunctions.BlobCaches.LocalMachine);
+            (int, List<Product>) cachedProducts = await new CacheFunctions().tryToGet<(int, List<Product>)>($"{ShopInfoStatic.currentShopId}_{Caches.PRODUCTS_CACHE.key}" + "_" + menu.CategoryId.ToString(), CacheFunctions.BlobCaches.LocalMachine);
 
             ProductLists.Clear();
 

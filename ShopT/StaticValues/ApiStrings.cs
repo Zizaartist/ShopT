@@ -5,7 +5,7 @@
         public static string HOST = "";
         public static string HOST_ADMIN = "";
 
-        public const string SHOPT_HUB = "https://shopthubapi.azurewebsites.net/";
+        public const string SHOPT_HUB = "https://shopthub.azurewebsites.net/";
 
         //Auth
 
@@ -61,17 +61,13 @@
         //Orders
 
         /// <summary>
-        /// POST: api/Orders/
+        /// POST: api/Orders/ GET: api/Orders/{id}
         /// </summary>
         public const string ORDERS_CONTROLLER = "api/Orders/";
         /// <summary>
         /// GET: api/Orders/GetMyOrders/{_page}
         /// </summary>
         public const string ORDERS_GET_ORDERS = "api/Orders/GetMyOrders/";
-        /// <summary>
-        /// PUT: api/Orders/ClaimPoints/{id}
-        /// </summary>
-        public const string ORDERS_CLAIM_POINTS = "api/Orders/ClaimPoints/";
 
         //PointRegisters
 

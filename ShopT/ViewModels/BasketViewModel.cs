@@ -23,7 +23,7 @@ namespace ShopT.ViewModels
 
         public decimal TotalSum { get => OrderDetails.Sum(detail => detail.SumPrice); }
 
-
+        public bool NotEmpty { get => OrderDetails.Any(); }
 
         public Command OrderDetailSelfDestruct { get; }
 
@@ -42,7 +42,11 @@ namespace ShopT.ViewModels
                 OrderDetails.Remove(detail);
             });
 
-            OrderDetails.CollectionChanged += (sender, e) => OnPropertyChanged("TotalSum");
+            OrderDetails.CollectionChanged += (sender, e) => 
+            {
+                OnPropertyChanged(nameof(TotalSum));
+                OnPropertyChanged(nameof(NotEmpty));
+            };
 
             //Fire and forget
             SaveChangesCommand = new Command(async () => 
@@ -99,7 +103,7 @@ namespace ShopT.ViewModels
             OrderDetails.Clear();
 
             //Пытаемся вытащить данные из кэша, при неудаче создаем пустую ячейку для предотвращения KeyNotFoundException
-            List<OrderDetail> cachedShopcart = await new CacheFunctions().tryToGet<List<OrderDetail>>(Caches.SHOPCART_CACHE.key, CacheFunctions.BlobCaches.UserAccount);
+            List<OrderDetail> cachedShopcart = await new CacheFunctions().tryToGet<List<OrderDetail>>($"{ShopInfoStatic.currentShopId}_{Caches.SHOPCART_CACHE.key}", CacheFunctions.BlobCaches.UserAccount);
 
             //В случае если кэш не пуст
             if (cachedShopcart != null)
@@ -116,21 +120,6 @@ namespace ShopT.ViewModels
         /// </summary>
         public async Task AddDetails(OrderDetailLocal newDetails)
         {
-            //var toAdd = new List<OrderDetailLocal>();
-
-            //foreach (var detail in newDetails)
-            //{
-            //    var found = OrderDetails?.FirstOrDefault(d => d.OrderDetail.ProductId == detail.OrderDetail.ProductId);
-            //    if (found != null)
-            //    {
-            //        found.Count += detail.Count;
-            //    }
-            //    else
-            //    {
-            //        toAdd.Add(detail);
-            //    }
-            //}
-
             var found = OrderDetails?.FirstOrDefault(d => d.OrderDetail.ProductId == newDetails.OrderDetail.ProductId);
             if (found != null)
             {
@@ -177,7 +166,7 @@ namespace ShopT.ViewModels
         {
             if (IsBusy) return; //preventing parallel calls, is it though?
             IsBusy = true;
-            await BlobCache.UserAccount.InsertObject(Caches.SHOPCART_CACHE.key, OrderDetails.Select(detail => detail.OrderDetail));
+            await BlobCache.UserAccount.InsertObject($"{ShopInfoStatic.currentShopId}_{Caches.SHOPCART_CACHE.key}", OrderDetails.Select(detail => detail.OrderDetail));
             IsBusy = false;
         }
 

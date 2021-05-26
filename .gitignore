@@ -199,3 +199,5 @@ FakesAssemblies/
 
 .vs/ShopT/v16/.suo
 .vs/ShopT/DesignTimeBuild/.dtbcache.v2
+
+ShopT.Android/bin/Release/

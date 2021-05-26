@@ -117,8 +117,8 @@ namespace ShopT.ViewModels
                 {
                     string result = await response.Content.ReadAsStringAsync();
                     List<Product> tempList = JsonConvert.DeserializeObject<List<Product>>(result);
-                    List<string> tempListCategory = new List<string>();
 
+                    List<string> tempListCategory = new List<string>();
 
                     foreach (var item in tempList)
                     {
@@ -133,8 +133,6 @@ namespace ShopT.ViewModels
                     {
                         Filters.Add(item);
                     }
-
-                    await BlobCache.LocalMachine.InsertObject(Caches.PRODUCTS_CACHE.key + "_" + ByName.ToString(), (ProductLists.Select(e => e.Product)), Caches.PRODUCTS_CACHE.lifeTime);
                 }
                 
             }

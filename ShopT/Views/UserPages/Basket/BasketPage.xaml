@@ -15,7 +15,8 @@
     <ContentPage.Content>
         <CollectionView Style="{StaticResource zBasketCollection}"
                         x:Name="OrderCollection"
-                        ItemsSource="{Binding OrderDetails}">
+                        ItemsSource="{Binding OrderDetails}" 
+                        IsVisible="{Binding NotEmpty}">
             <CollectionView.Header>
                 <Grid Style="{StaticResource zBasketCollectionHeaderGrid}">
                     <pancakeview:PancakeView Style="{StaticResource zBasketCollectionHeaderPancake}"/>

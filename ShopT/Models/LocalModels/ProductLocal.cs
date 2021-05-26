@@ -49,6 +49,8 @@ namespace ShopT.Models.LocalModels
 
         public bool OneOrMore { get => Count > 0; }
         public bool BoolDiscount { get => Product.Discount != null; }
+        public bool SoldOut { get => Product.InStorage <= 0; }
+        public bool NotSoldOut { get => !SoldOut; }
 
         public decimal SumPrice { get => Count * Price; }
 
@@ -72,8 +74,9 @@ namespace ShopT.Models.LocalModels
         public ProductLocal(Product _product, Action _refreshAllData, Command _addToSelected, Command _removeFromSelected, Command _addToBasket)
         {
             Product = _product;
-            AddToBasket = _addToBasket;
+            AddToBasket = new Command(() => _addToBasket.Execute(this), () => NotSoldOut);
             refreshAllData = _refreshAllData;
+
             Image = new UriImageSource
             {
                 Uri = new Uri(ApiStrings.HOST_ADMIN + ApiStrings.IMAGES_FOLDER + Product.Image),
@@ -83,11 +86,11 @@ namespace ShopT.Models.LocalModels
             AddCount = new Command(() => 
             {
                 if (Count < maxCount) Count++;
-            });
+            }, () => NotSoldOut);
             SubCount = new Command(() =>
             {
                 if (Count > minCount) Count--;
-            });
+            }, () => NotSoldOut);
 
             addToSelected = _addToSelected;
             removeFromSelected = _removeFromSelected;
