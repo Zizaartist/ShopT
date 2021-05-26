@@ -4,9 +4,11 @@ using ShopT.Models.LocalModels;
 using ShopT.Models.Maps;
 using ShopT.StaticValues;
 using ShopT.ViewModels;
+using ShopT.Views.Registration;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -39,6 +41,7 @@ namespace ShopT.Views.UserPages.ShopsPage
                 pin.Name = item.Shop.ShopInfo.OrganizationName;
                 pin.Label = item.Shop.ShopInfo.OrganizationName;
                 pin.Images = item.Shop.ShopInfo.Avatar;
+                pin.ShopId = item.Shop.ShopId;
 
                 CustomPinList.Add(pin);
 
@@ -52,6 +55,22 @@ namespace ShopT.Views.UserPages.ShopsPage
 
             customMap.MapClicked += OnMapClicked;
             customMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(62.0332725, 129.7309803), Distance.FromKilometers(1)));
+
+            customMap.ShopSelected += OnShopSelected;
+        }
+
+        void OnShopSelected(object sender, ShopSelectedEventArgs e) 
+        {
+            var selectedShop = LocationViewModel.Instance.shopVM.Shops.First(shop => shop.Shop.ShopId == e.shopId);
+
+            ShopInfoStatic.shopInfo = selectedShop.Shop.ShopInfo;
+            ShopInfoStatic.shopConfiguration = selectedShop.Shop.ShopConfiguration;
+            ShopInfoStatic.currentShopId = selectedShop.Shop.ShopId;
+
+            ApiStrings.HOST = selectedShop.Shop.ClientApiAddress + "/";
+            ApiStrings.HOST_ADMIN = selectedShop.Shop.AdminApiAddress + "/";
+
+            App.Current.MainPage = new StartPage();
         }
 
         void OnMapClicked(object sender, MapClickedEventArgs e)

@@ -18,10 +18,12 @@ namespace ShopT.Droid
 {
     public class CustomMapRenderer : MapRenderer, GoogleMap.IInfoWindowAdapter
     {
-        List<CustomPin> customPins;
+        private List<CustomPin> customPins;
+        private Action<ShopSelectedEventArgs> OnShopSelected;
 
         public CustomMapRenderer(Context context) : base(context)
         {
+
         }
         
         protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<Map> e)
@@ -37,6 +39,11 @@ namespace ShopT.Droid
             {
                 var formsMap = (CustomMap)e.NewElement;
                 customPins = formsMap.CustomPins;
+                formsMap.LocationChanged += (sender, e) => 
+                {
+                    
+                };
+                OnShopSelected = (args) => formsMap.OnShopSelected(args);
             }
         }
 
@@ -45,6 +52,7 @@ namespace ShopT.Droid
             base.OnMapReady(map);
 
             NativeMap.InfoWindowClick += OnInfoWindowClick;
+            //NativeMap.
             NativeMap.SetInfoWindowAdapter(this);
         }
 
@@ -59,11 +67,13 @@ namespace ShopT.Droid
 
         void OnInfoWindowClick(object sender, GoogleMap.InfoWindowClickEventArgs e)
         {
-            //var customPin = GetCustomPin(e.Marker);
-            //if (customPin == null)
-            //{
-            //    throw new Exception("Custom pin not found");
-            //}
+            var customPin = GetCustomPin(e.Marker);
+            if (customPin == null)
+            {
+                throw new Exception("Custom pin not found");
+            }
+
+            OnShopSelected(new ShopSelectedEventArgs(customPin.ShopId));
 
             //if (!string.IsNullOrWhiteSpace(customPin.Url))
             //{

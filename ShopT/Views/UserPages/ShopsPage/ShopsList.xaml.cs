@@ -32,7 +32,6 @@ namespace ShopT.Views.UserPages.ShopsPage
                 var _shopLocal = ShopList.SelectedItem as ShopLocal;
                 ShopList.SelectedItem = null;
 
-
                 ShopInfoStatic.shopInfo = _shopLocal.Shop.ShopInfo;
                 ShopInfoStatic.shopConfiguration = _shopLocal.Shop.ShopConfiguration;
                 ShopInfoStatic.currentShopId = _shopLocal.Shop.ShopId;

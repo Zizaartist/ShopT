@@ -72,7 +72,6 @@ namespace ShopT.iOS
                 //annotationView.LeftCalloutAccessoryView = new UIImageView(UIImage.LoadFromData(NSData.FromUrl(new NSUrl(customPin.Address))));
                 //annotationView.RightCalloutAccessoryView = UIButton.FromType(UIButtonType.DetailDisclosure);
                 ((CustomMKAnnotationView)annotationView).Name = customPin.Name;
-                ((CustomMKAnnotationView)annotationView).Url = customPin.Url;
                 ((CustomMKAnnotationView)annotationView).Images = customPin.Images;
             }
             annotationView.CanShowCallout = true;
