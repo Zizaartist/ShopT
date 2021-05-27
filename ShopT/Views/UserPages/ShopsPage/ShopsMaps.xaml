@@ -8,8 +8,14 @@
              Shell.ForegroundColor="{StaticResource HeaderBackColor}"
              Shell.TitleColor="{StaticResource HeaderBackColor}"
              BackgroundColor="{StaticResource BackgroundPageColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Выбор магазина"/>
+        </Grid>
+    </Shell.TitleView>
     <ContentPage.Content>
         <local:CustomMap x:Name="customMap"
-                   MapType="Street" />
+                         MapType="Street" />
     </ContentPage.Content>
 </ContentPage>

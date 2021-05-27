@@ -21,7 +21,8 @@ namespace ShopT
             BlobCache.ApplicationName = "ShopT";
             BlobCache.EnsureInitialized();
 
-            MainPage = new ShopsShell();
+            //MainPage = new ShopsShell();
+            MainPage = new FindCity();
         }
         void InitializationPublicStyles()
         {

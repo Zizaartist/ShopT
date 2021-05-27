@@ -830,6 +830,13 @@
         <Setter Property="Grid.Row" Value="1"/>
     </Style>
     <!--SHOPLIST-->
+    <Style x:Key="zShopListHeaderStack" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20"/>
+    </Style>
+    <Style x:Key="zShopListHeaderButton" TargetType="Button" BasedOn="{StaticResource ButtonChoiced}">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="Text" Value="Выбрать локацию"/>
+    </Style>
     <Style x:Key="zShopListCollectionView" TargetType="CollectionView">
         <Setter Property="ItemsLayout">
             <GridItemsLayout Orientation="Vertical"
@@ -867,6 +874,70 @@
     <Style x:Key="zShopListLabel" TargetType="Label" BasedOn="{StaticResource Font_14Bold}">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="VerticalOptions" Value="Start"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <!--COLORS OF SELECTED ITEM-->
+    <Style TargetType="Grid">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor"
+                                        Value="{DynamicResource ThemeColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <Style TargetType="StackLayout">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor"
+                                        Value="{DynamicResource ThemeColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <!--SHELLFINDCITY-->
+    <Style x:Key="ShellFindCityGrid" TargetType="Grid" BasedOn="{StaticResource ShellFindGrid}">
+        <Setter Property="Padding" Value="20,0,20,0"/>
+        
+    </Style>
+    <Style x:Key="ShellFindCityFrame" TargetType="Frame" BasedOn="{StaticResource ShellFindFrame}">
+    </Style>
+    <Style x:Key="ShellFindCityInsideGrid" TargetType="Grid" BasedOn="{StaticResource ShellFindInsideGrid}">
+    </Style>
+    <Style x:Key="ShellFindCityImage" TargetType="Image" BasedOn="{StaticResource ShellFindImage}">
+    </Style>
+    <Style x:Key="ShellFindCityEntry" TargetType="Entry" BasedOn="{StaticResource ShellFindEntry}">
+    </Style>
+    <Style x:Key="ShellFindCityButton" TargetType="Button" BasedOn="{StaticResource ShellFindButton}">
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+    </Style>
+    <Style x:Key="ShellFindCityNext" TargetType="Button" BasedOn="{StaticResource ButtonChoiced}">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="Grid.ColumnSpan" Value="2"/>
+        <Setter Property="Text" Value="Продолжить"/>
+        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    <!--LOCATIONS-->
+    <Style x:Key="zLocationsCollection" TargetType="CollectionView">
+        <Setter Property="SelectionMode" Value="Single"/>
+    </Style>
+    <Style x:Key="zLocationStack" TargetType="StackLayout">
+        <Setter Property="Padding" Value="20"/>
+    </Style>
+    <Style x:Key="zLocationLabel" TargetType="Label" BasedOn="{StaticResource Font_14}">
         <Setter Property="FontSize" Value="18"/>
     </Style>
 </ResourceDictionary>

@@ -27,5 +27,8 @@
     <EmbeddedResource Update="ResourceDictionary\SbieTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\UserPages\ShopsPage\FindCity.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
