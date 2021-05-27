@@ -2,9 +2,12 @@
 using ShopT.Models.LocalModels;
 using ShopT.Models.Statistics;
 using ShopT.StaticValues;
+using ShopT.ViewModels;
 using ShopT.Views.Registration;
 using ShopT.Views.UserPages.ShopsPage;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace ShopT
@@ -13,6 +16,9 @@ namespace ShopT
     {
         public Style payment, paymentSelected;
         public bool subcategory = true, Sale = true;
+
+        private Task<int> GetLastLocationId;
+
         public App()
         {
             InitializeComponent();
@@ -21,17 +27,25 @@ namespace ShopT
             BlobCache.ApplicationName = "ShopT";
             BlobCache.EnsureInitialized();
 
-            //MainPage = new ShopsShell();
-            MainPage = new FindCity();
+            //Стартуем заранее
+            GetLastLocationId = new CacheFunctions().tryToGet<int>($"{Caches.LOCATION_SELECTED.key}", CacheFunctions.BlobCaches.UserAccount);
+
+            MainPage = new ShopsShell();
         }
+
         void InitializationPublicStyles()
         {
             payment = Payment;
             paymentSelected = PaymentSelected;
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
+            var lastLocationId = await GetLastLocationId;
+            if (lastLocationId == default)
+            {
+                await Shell.Current.GoToAsync("///shops/locations");
+            }
         }
 
         protected override void OnSleep()

@@ -16,11 +16,11 @@
     <TabBar>
         <Tab Title="Список"
              Icon="{StaticResource ListIcon}">
-            <ShellContent ContentTemplate="{DataTemplate viewsmain:ShopsList}" />
+            <ShellContent ContentTemplate="{DataTemplate viewsmain:ShopsList}" Route="shops"/>
         </Tab>
         <Tab Title="Карта"
              Icon="{StaticResource MapsIcon}">
-            <ShellContent ContentTemplate="{DataTemplate viewsmain:ShopsMaps}" />
+            <ShellContent ContentTemplate="{DataTemplate viewsmain:ShopsMaps}" Route="maps"/>
         </Tab>
     </TabBar>
 </Shell>

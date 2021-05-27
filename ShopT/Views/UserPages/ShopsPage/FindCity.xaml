@@ -16,18 +16,21 @@
     <ContentPage.Content>
         <CollectionView Style="{StaticResource zLocationsCollection}"
                         x:Name="LocationCollection"
-                        ItemsSource="{Binding Locations}"
-                        SelectionChanged="LocationCollection_SelectionChanged">
+                        ItemsSource="{Binding SearchLocations}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedLocation, Mode=OneWayToSource}">
             <CollectionView.Header>
                 <Grid Style="{StaticResource ShellFindCityGrid}">
                     <Frame Style="{StaticResource ShellFindCityFrame}">
                         <Grid Style="{StaticResource ShellFindCityInsideGrid}">
                             <Image Style="{StaticResource ShellFindCityImage}"/>
                             <Entry Style="{StaticResource ShellFindCityEntry}"
+                                   Text="{Binding SearchCriteria, Mode=TwoWay}"
                                    x:Name="FindEntry"/>
                         </Grid>
                     </Frame>
                     <Button Style="{StaticResource ShellFindCityButton}"
+                            Command="{Binding SearchCommand}"
                             x:Name="Search"
                             Clicked="Search_Clicked"/>
                     <Button Style="{StaticResource ShellFindCityNext}"

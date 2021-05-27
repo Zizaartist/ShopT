@@ -16,17 +16,7 @@ namespace ShopT.ViewModels
 {
     public class ShopViewModel : CollectionViewModel
     {
-        private ObservableRangeCollection<ShopLocal> shops;
-        public ObservableRangeCollection<ShopLocal> Shops
-        {
-            get => shops;
-            set
-            {
-                if (value == shops) return;
-                shops = value;
-                OnPropertyChanged();
-            }
-        }
+        public ObservableRangeCollection<ShopLocal> Shops { get; }
 
         public ShopViewModel()
         {

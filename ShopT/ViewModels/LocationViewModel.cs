@@ -1,9 +1,12 @@
 ﻿using Akavache;
 using Newtonsoft.Json;
 using ShopT.Models.HubModels;
+using ShopT.Models.Maps;
 using ShopT.StaticValues;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Reactive.Linq;
@@ -11,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace ShopT.ViewModels
 {
@@ -34,44 +38,59 @@ namespace ShopT.ViewModels
             }
         }
 
-        public List<Location> Locations { get; private set; }
+        public ObservableRangeCollection<Location> Locations { get; private set; }
 
         private Location selectedLocation;
-        public Location SelectedLocation
+        public Location SelectedLocation 
         {
             get => selectedLocation;
-            set 
-            {
-                if (selectedLocation == value) return;
-                selectedLocation = value;
-                OnPropertyChanged();
-
-                Task.Run(async () => 
-                { 
-                    await BlobCache.UserAccount.InsertObject($"{Caches.LOCATION_SELECTED.key}", value.LocationId); 
-                    await shopVM.GetInitialData.ExecuteAsync();
-                }); 
-            }
+            set { SetProperty(ref selectedLocation, value); }
         }
+
+        public ObservableRangeCollection<Location> SearchLocations { get; }
+
+        private string searchCriteria;
+        public string SearchCriteria 
+        {
+            get => searchCriteria;
+            set { SetProperty(ref searchCriteria, value); }
+        }
+
+        public Command SearchCommand { get; }
 
         public ShopViewModel shopVM { get; private set; }
 
         public LocationViewModel() 
         {
             shopVM = new ShopViewModel();
-            Locations = new List<Location>();
+            Locations = new ObservableRangeCollection<Location>();
+            SearchLocations = new ObservableRangeCollection<Location>();
+
+            SearchCommand = new Command(() =>
+            {
+                var criteriaCaps = SearchCriteria?.ToUpper();
+
+                SearchLocations.ReplaceRange(Locations.Where(loc =>
+                {
+                    if (string.IsNullOrEmpty(criteriaCaps)) return true;
+                    return loc.LocationName.ToUpper().Contains(criteriaCaps);
+                }));
+            });
+
+            Task.Run(() => GetCachedData());
         }
 
-        public async Task ReplaceLocations(IEnumerable<Location> locations) 
+        public async Task InitLocations(IEnumerable<Location> locations) 
         {
-            Locations.Clear();
-            Locations.AddRange(locations);
-            OnPropertyChanged(nameof(Locations));
+            Locations.ReplaceRange(locations);
+            SearchLocations.ReplaceRange(Locations);
 
             var defaultId = Locations.First().LocationId;
 
             var lastSelectedId = await new CacheFunctions().tryToGet<int>($"{Caches.LOCATION_SELECTED.key}", CacheFunctions.BlobCaches.UserAccount);
             SelectedLocation = Locations.First(loc => loc.LocationId == (lastSelectedId == default ? defaultId : lastSelectedId));
+
+            await shopVM.GetInitialData.ExecuteAsync();
         }
 
         public async Task GetRemoteData() 
@@ -87,7 +106,8 @@ namespace ShopT.ViewModels
                     List<Location> tempList = JsonConvert.DeserializeObject<List<Location>>(result);
 
                     await BlobCache.LocalMachine.InsertObject($"{Caches.LOCATIONS_CACHE.key}", tempList, Caches.LOCATIONS_CACHE.lifeTime);
-                    await ReplaceLocations(tempList);
+                    
+                    await InitLocations(tempList);
                 }
             }
             catch (Exception _ex) 
@@ -105,7 +125,7 @@ namespace ShopT.ViewModels
             //В случае если кэш не пуст
             if (cachedLocations != default)
             {
-                await ReplaceLocations(cachedLocations);
+                await InitLocations(cachedLocations);
             }
             //В случае если он пуст
             else
@@ -119,6 +139,12 @@ namespace ShopT.ViewModels
                     //idk
                 }
             }
+        }
+
+        public async Task LocationSelected()
+        {
+            await BlobCache.UserAccount.InsertObject($"{Caches.LOCATION_SELECTED.key}", SelectedLocation.LocationId);
+            await shopVM.GetInitialData.ExecuteAsync();
         }
     }
 }

@@ -15,6 +15,8 @@ namespace ShopT.Views.UserPages.ShopsPage
         public ShopsShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute("shops/locations", typeof(FindCity));
         }
     }
 }

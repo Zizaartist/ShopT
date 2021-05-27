@@ -39,10 +39,6 @@ namespace ShopT.Droid
             {
                 var formsMap = (CustomMap)e.NewElement;
                 customPins = formsMap.CustomPins;
-                formsMap.LocationChanged += (sender, e) => 
-                {
-                    
-                };
                 OnShopSelected = (args) => formsMap.OnShopSelected(args);
             }
         }
