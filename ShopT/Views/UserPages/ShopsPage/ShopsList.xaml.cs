@@ -2,6 +2,7 @@
 using ShopT.Models.Statistics;
 using ShopT.StaticValues;
 using ShopT.ViewModels;
+using ShopT.ViewModels.Templates;
 using ShopT.Views.Registration;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,8 @@ namespace ShopT.Views.UserPages.ShopsPage
                 ApiStrings.HOST_ADMIN = _shopLocal.Shop.AdminApiAddress +"/";
 
                 App.Current.MainPage = new StartPage();
+
+                ThemeManager.ChangeTheme();
             }
         }
 

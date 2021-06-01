@@ -3,6 +3,7 @@ using ShopT.Models.LocalModels;
 using ShopT.Models.Statistics;
 using ShopT.StaticValues;
 using ShopT.ViewModels;
+using ShopT.ViewModels.Templates;
 using ShopT.Views.Registration;
 using ShopT.Views.UserPages.ShopsPage;
 using System.Collections.Generic;
@@ -26,6 +27,8 @@ namespace ShopT
 
             BlobCache.ApplicationName = "ShopT";
             BlobCache.EnsureInitialized();
+
+            ThemeManager.ChangeTheme();
 
             //Стартуем заранее
             GetLastLocationId = new CacheFunctions().tryToGet<int>($"{Caches.LOCATION_SELECTED.key}", CacheFunctions.BlobCaches.UserAccount);

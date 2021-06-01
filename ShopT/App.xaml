@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ShopT.App">
     <Application.Resources>
-        <ResourceDictionary Source="ResourceDictionary/SbieTheme.xaml"
-                            x:Name="CurrentTheme">
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionary/SbieTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
             <x:Boolean x:Key="Bonus">true</x:Boolean>
             <x:Boolean x:Key="Filter">true</x:Boolean>
             <x:Boolean x:Key="Equaring">true</x:Boolean>
             <x:Boolean x:Key="Banner">true</x:Boolean>
+            
             <Style x:Key="ButtonChoice" TargetType="Button" BasedOn="{StaticResource ButtonChoice}" x:Name="Payment"/>
             <Style x:Key="ButtonChoiced" TargetType="Button" BasedOn="{StaticResource ButtonChoiced}" x:Name="PaymentSelected"/>
         </ResourceDictionary>

@@ -16,6 +16,7 @@ namespace ShopT.Models.HubModels
         public int Cashback { get; set; }
         public decimal? MinimalDeliveryPrice { get; set; }
         public string PaymentMethods { get; set; }
+        public Theme Theme { get; set; }
         public long Version { get; set; }
 
         [JsonIgnore]
